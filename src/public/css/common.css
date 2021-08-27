@@ -1,0 +1,45 @@
+:root {}
+
+* {
+    border: 0;
+    margin: 0;
+    padding: 0;
+    font-family: "Fira Code", monospace;
+    transition-duration: 0.2s;
+    box-sizing: border-box;
+    transition: 0.2s;
+}
+
+html,
+body {
+    overflow: hidden;
+    height: 100vh;
+    width: 100vw;
+}
+
+body {
+    background-color: gray;
+}
+
+.wrapper {
+    height: 100vh;
+    width: 100vw;
+    position: relative;
+}
+
+ul {
+    list-style-type: none;
+}
+
+.absolute-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.flex-center-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
