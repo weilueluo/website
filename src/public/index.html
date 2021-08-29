@@ -28,19 +28,63 @@
         <div id="content-wrapper" class="wrapper absolute-center flex-center-content">
             <div id="title">Hello World</div>
             <ul id="list">
-                <li class="list-item flex-center-content stand-out">cv</li>
-                <li class="list-item flex-center-content stand-out">waifus</li>
-                <li class="list-item flex-center-content stand-out">about</li>
+                <li class="list-item stand-out background-image"><a href="#">cv</a></li>
+                <li class="list-item stand-out background-image"><a href="#">waifus</a></li>
+                <li class="list-item stand-out background-image"><a href="#">about</a></li>
             </ul>
         </div>
         <div id="alert"></div>
+        <div id="background" class="background-image"></div>
 
-        <img id="background-image" height="1920" width="1080" src="image/66474729_p0.jpg" alt="">
+
+        <!-- <svg height="100vh" width="100vw" xmlns="http://www.w3.org/2000/svg">
+            <image id="background-image" class="background-image" preserveAspectRatio="xMidYMid slice" height="100%" width="100%" href="image/66474729_p0.jpg"></image> -->
+        <!-- <filter id="filter2">
+                <feGaussianBlur stdDeviation="5" />
+            </filter> -->
+        <!-- 
+            
+            <image xlink:href="http://i.imgur.com/IGKVr8r.png" width="100%" height="100%" mask="url(#mask1)"></image> -->
+        <!-- <mask id="mask1">
+                <circle cx="-50%" cy="-50%" r="30" fill="white"/>
+            </mask> -->
+        <!-- <use xlink:href="#background-image" mask="url(#mask1)"/> -->
+        <!-- <image preserveAspectRatio="xMidYMid slice" height="100%" width="100%" href="image/66474729_p0.jpg" mask="url(#mask1)"></image> -->
+        <!-- </svg> -->
     </div>
 
-    <script src="js/dependency/jquery-3.6.0.min.js"></script>
+
+    <!-- <svg>
+        <defs>
+            <filter id="grayscale">
+                <feColorMatrix type="matrix" in="SourceGraphic" values="
+                    0.3333 0.3333 0.3333 0 0
+                    0.3333 0.3333 0.3333 0 0
+                    0.3333 0.3333 0.3333 0 0
+                    0      0      0      1 0"/>
+            </filter>
+        </defs>
+    </svg> -->
+
+    <script src="js/dependencies/jquery-3.6.0.min.js"></script>
     <script type="module" src="js/index.js"></script>
-    <script type="module" src="js/animation/list-item-hover.js"></script>
+    <script type="module" src="js/animations/list-item-hover.js"></script>
+    <script type="module" src="js/animations/list-item-click.js"></script>
+
+    <!-- <script>
+        const background = document.getElementById("body-wrapper");
+        console.log("hi");
+        console.log(background);
+        background.addEventListener("mousemove", event => {
+            console.log("hi");
+            event.preventDefault();
+            var upX = event.clientX;
+            var upY = event.clientY;
+            var mask = $('#mask1 circle')[0];
+            mask.setAttribute("cy", (upY - 5) + 'px');
+            mask.setAttribute("cx", (upX) + 'px');
+        })
+    </script> -->
 </body>
 
 </html>

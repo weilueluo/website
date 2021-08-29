@@ -3,5 +3,8 @@
         "include": [
             "jquery"
         ]
+    },
+    "compilerOptions": {
+        "target": "es6",
     }
 }
