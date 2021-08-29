@@ -1,4 +1,4 @@
-import { findAllElementSiblings } from "../modules/utils.mjs";
+import { findAllElementSiblings } from "../components/utils.js";
 
 (() => {
     const fromOpacity = "1";

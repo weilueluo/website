@@ -1,4 +1,4 @@
-import { getMouseInfo } from "./modules/mouse.mjs"
+import { getMouseInfo } from "./components/mouse.js"
 
 $(() => {
 
