@@ -1,21 +1,31 @@
-export function getStyle(element, property) {
-    return window.getComputedStyle(element).getPropertyValue(property);
-}
-
-export function getCssValue(varName) {
-    return window.getComputedStyle(document.documentElement).getPropertyValue(varName);
-}
-
-export function findAllSiblings(node, nodeFilter = e => true) {
-    const siblings = []
+function applyToAllSiblings(node, callback) {
     node.parentNode.childNodes.forEach(child => {
-        if (child != node && nodeFilter(child)) {
-            siblings.push(child);
+        if (child != node) {
+            callback(child);
         }
     });
-    return siblings;
 }
 
-export function findAllElementSiblings(element) {
-    return findAllSiblings(element, e => e.nodeType == Node.ELEMENT_NODE);
+function applyToAllElementSiblings(node, callback) {
+    applyToAllSiblings(node, sibling => {
+        if (sibling.nodeType == Node.ELEMENT_NODE) {
+            callback(sibling);
+        }
+    })
+}
+
+export function addClass(element, ...clazz) {
+    element.classList.add(clazz);
+}
+
+export function removeClass(element, ...clazz) {
+    element.classList.remove(clazz);
+}
+
+export function addSiblingsClass(element, ...clazz) {
+    applyToAllElementSiblings(element, sibling => sibling.classList.add(clazz));
+}
+
+export function removeSiblingsClass(element, ...clazz) {
+    applyToAllElementSiblings(element, sibling => sibling.classList.remove(clazz));
 }

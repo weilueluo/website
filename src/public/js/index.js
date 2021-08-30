@@ -8,7 +8,6 @@ $(() => {
         $("#alert").html(`x=${info.x}, y=${info.y}, speedX=${info.speedX}, speedY=${info.speedY}`)
     });
 
-
     // track resize event of list item, set the background accordingly
     // so that it looks like a clean look through
     const resizeObserver = new ResizeObserver(events => {

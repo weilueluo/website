@@ -10,9 +10,6 @@
 }
 
 * {
-    /* outline: 1px solid red; */
-    -webkit-transition: height 0.2s, width 0.2s, background-position 0s;
-    -o-transition: height 0.2s, width 0.2s, background-position 0s;
     transition: height 0.2s, width 0.2s, background-position 0s;
 }
 
@@ -27,18 +24,9 @@
 }
 
 #content-wrapper {
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -ms-flex-direction: column;
     flex-direction: column;
-    height: -webkit-fit-content;
-    height: -moz-fit-content;
     height: fit-content;
-    width: -webkit-fit-content;
-    width: -moz-fit-content;
     width: fit-content;
     row-gap: 5vh;
 }
@@ -72,20 +60,10 @@
 
 #list {
     height: 25rem;
-    width: -webkit-fit-content;
-    width: -moz-fit-content;
     width: fit-content;
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -ms-flex-direction: column;
     flex-direction: column;
-    -ms-flex-pack: distribute;
     justify-content: space-around;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
     align-items: center;
     color: black;
     font-weight: bold;
@@ -97,30 +75,53 @@
     width: 15rem;
     position: relative;
     max-width: 90vw;
+    border-radius: 10px;
+    box-shadow: 0px 0px 50px 0px black;
+    transition: 
+        height 0.2s cubic-bezier(0, 0, 0.5, 0.1), 
+        width 0.4s cubic-bezier(0, 0, 0.5, 1), 
+        font-size 0.5s ease-out, 
+        opacity 0.2s;
 }
 
 .list-item>a {
-    color: wheat;
+    color: white;
     position: absolute;
     left: 50%;
     top: 50%;
-    -webkit-transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
+    padding: 1rem;
     transform: translate(-50%, -50%);
     text-shadow: 0px 0px 5px black;
     pointer-events: none;
+    transition: 
+        top 0.3s,
+        left 0.3s,
+        transform 0.3s;
 }
 
 .list-item:hover {
     font-size: x-large;
-    color: rgb(165 84 108);
     cursor: pointer;
-    border-color: rgb(165 84 108);
 }
 
-.stand-out {
-    border: 2px solid white;
-    border-radius: 5px;
-    -webkit-box-shadow: 0px 0px 50px 0px white;
-    box-shadow: 0px 0px 50px 0px white;
+/* animation class control by js */
+
+.list-item-hover-siblings {
+    opacity: 0.3;
+}
+
+.list-item-hover {
+    height: 10rem;
+    width: 30rem;
+}
+
+.list-item-hover>a {
+    top: 0%;
+    left: 0%;
+    transform: translate(0%);
+}
+
+.list-item-mouse-down {
+    height: 8rem;
+    width: 28rem;
 }
