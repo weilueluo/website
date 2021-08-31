@@ -10,12 +10,7 @@
 }
 
 * {
-    transition: height 0.2s, width 0.2s, background-position 0s;
-}
-
-*::-moz-selection {
-    background-color: gray;
-    color: white;
+    transition: height 0.2s, width 0.2s;
 }
 
 *::selection {
@@ -36,14 +31,13 @@
 }
 
 #background {
+    background-size: cover;
     position: absolute;
     top: 0;
     left: 0;
     height: 100%;
     width: 100%;
     z-index: -99;
-    background-size: cover;
-    -webkit-filter: grayscale(100%) blur(5px);
     filter: grayscale(100%) blur(5px);
 }
 
@@ -71,17 +65,29 @@
 
 .list-item {
     height: 3rem;
-    opacity: 1;
     width: 15rem;
+    opacity: 1;
     position: relative;
     max-width: 90vw;
     border-radius: 10px;
     box-shadow: 0px 0px 50px 0px black;
-    transition: 
+    overflow: hidden;
+    transition:
         height 0.2s cubic-bezier(0, 0, 0.5, 0.1), 
         width 0.4s cubic-bezier(0, 0, 0.5, 1), 
         font-size 0.5s ease-out, 
         opacity 0.2s;
+}
+
+.clear {
+    height: 100vh;
+    width: 100vw;
+    position: absolute;
+    top: 0;
+    left: 0;
+    content: '';
+    background-size: cover;
+    pointer-events: none;
 }
 
 .list-item>a {
@@ -91,17 +97,21 @@
     top: 50%;
     padding: 1rem;
     transform: translate(-50%, -50%);
-    text-shadow: 0px 0px 5px black;
     pointer-events: none;
-    transition: 
+    transition:
         top 0.3s,
         left 0.3s,
-        transform 0.3s;
+        transform 0.3s,
+        color 0.3s,
+        text-shadow 0.3s;
 }
 
 .list-item:hover {
-    font-size: x-large;
     cursor: pointer;
+}
+
+.list-item:hover>a {
+    text-shadow: 0 0 10px white;
 }
 
 /* animation class control by js */

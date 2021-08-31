@@ -27,10 +27,6 @@ import { addClass, addSiblingsClass, removeSiblingsClass, removeClass } from "..
         listItem.addEventListener("mouseenter", event => {
             addClass(event.target, hoverClass);
             addSiblingsClass(event.target, hoverSiblingClass);
-
-            // const desc = document.createElement("div");
-            // desc.innerHTML = "hey";
-            // event.target.insertAdjacentElement("beforeend", desc);
         })
 
         listItem.addEventListener("mouseout", event => {
