@@ -15,17 +15,17 @@ function applyToAllElementSiblings(node, callback) {
 }
 
 export function addClass(element, ...clazz) {
-    element.classList.add(clazz);
+    element.classList.add(...clazz);
 }
 
 export function removeClass(element, ...clazz) {
-    element.classList.remove(clazz);
+    element.classList.remove(...clazz);
 }
 
 export function addSiblingsClass(element, ...clazz) {
-    applyToAllElementSiblings(element, sibling => sibling.classList.add(clazz));
+    applyToAllElementSiblings(element, sibling => sibling.classList.add(...clazz));
 }
 
 export function removeSiblingsClass(element, ...clazz) {
-    applyToAllElementSiblings(element, sibling => sibling.classList.remove(clazz));
+    applyToAllElementSiblings(element, sibling => sibling.classList.remove(...clazz));
 }

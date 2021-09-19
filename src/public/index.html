@@ -25,77 +25,55 @@
 
 <body>
     <div id="body-wrapper" class="wrapper">
-        <div id="content-wrapper" class="wrapper absolute-center flex-center-content">
-            <div id="title">Hello World</div>
-            <ul id="list">
-                <li class="list-item">
-                    <div class="background-image clear"></div>
-                    <a href="#">cv</a>
+        <div id="content-wrapper" class="wrapper absolute-center flex-center">
+            <div id="title" class="overflow-hidden">hey its not ready</div>
+            <ul id="list" class="flex-column flex-center-space-around">
+                <li class="list-item list-item-arrangement overflow-hidden">
+                    <div class="background-image clear absolute-top-left"></div>
+                    <div class="cube">
+                        <div class="cube-face cube-face-front"><a href="#">CV</a></div>
+                        <div class="cube-face cube-face-left"></div>
+                        <div class="cube-face cube-face-right"></div>
+                        <div class="cube-face cube-face-back"><a href="#">View My Career</a></div>
+                        <div class="cube-face cube-face-bottom"></div>
+                        <div class="cube-face cube-face-top"></div>
+                    </div>
+                    <p class="description">View my career.</p>
                 </li>
                 
-                <li class="list-item">
-                    <div class="background-image clear"></div>
-                    <a href="#">waifus</a>
+                <li class="list-item list-item-arrangement overflow-hidden">
+                    <div class="background-image clear absolute-top-left"></div>
+                    <div class="cube">
+                        <div class="cube-face cube-face-front"><a href="#">Waifus</a></div>
+                        <div class="cube-face cube-face-left"></div>
+                        <div class="cube-face cube-face-right"></div>
+                        <div class="cube-face cube-face-back"><a href="#">View My Hobby</a></div>
+                        <div class="cube-face cube-face-bottom"></div>
+                        <div class="cube-face cube-face-top"></div>
+                    </div>
                 </li>
                 
-                <li class="list-item">
-                    <div class="background-image clear"></div>
-                    <a href="#">about</a>
+                <li class="list-item list-item-arrangement  overflow-hidden">
+                    <div class="background-image clear absolute-top-left"></div>
+                    <div class="cube">
+                        <div class="cube-face cube-face-front"><a href="#">About</a></div>
+                        <div class="cube-face cube-face-left"></div>
+                        <div class="cube-face cube-face-right"></div>
+                        <div class="cube-face cube-face-back"><a href="#">View My Website</a></div>
+                        <div class="cube-face cube-face-bottom"></div>
+                        <div class="cube-face cube-face-top"></div>
+                    </div>
                 </li>
                 
             </ul>
         </div>
         <div id="alert"></div>
-        <div id="background" class="background-image"></div>
 
-
-        <!-- <svg height="100vh" width="100vw" xmlns="http://www.w3.org/2000/svg">
-            <image id="background-image" class="background-image" preserveAspectRatio="xMidYMid slice" height="100%" width="100%" href="image/66474729_p0.jpg"></image> -->
-        <!-- <filter id="filter2">
-                <feGaussianBlur stdDeviation="5" />
-            </filter> -->
-        <!-- 
-            
-            <image xlink:href="http://i.imgur.com/IGKVr8r.png" width="100%" height="100%" mask="url(#mask1)"></image> -->
-        <!-- <mask id="mask1">
-                <circle cx="-50%" cy="-50%" r="30" fill="white"/>
-            </mask> -->
-        <!-- <use xlink:href="#background-image" mask="url(#mask1)"/> -->
-        <!-- <image preserveAspectRatio="xMidYMid slice" height="100%" width="100%" href="image/66474729_p0.jpg" mask="url(#mask1)"></image> -->
-        <!-- </svg> -->
+        <!-- https://www.pixiv.net/artworks/84885989 -->
+        <div id="background" class="background-image absolute-top-left background-cover"></div>
     </div>
-
-
-    <!-- <svg>
-        <defs>
-            <filter id="grayscale">
-                <feColorMatrix type="matrix" in="SourceGraphic" values="
-                    0.3333 0.3333 0.3333 0 0
-                    0.3333 0.3333 0.3333 0 0
-                    0.3333 0.3333 0.3333 0 0
-                    0      0      0      1 0"/>
-            </filter>
-        </defs>
-    </svg> -->
-
     <script src="js/dependencies/jquery-3.6.0.min.js"></script>
     <script type="module" src="js/index.js"></script>
     <script type="module" src="js/animations/list-item.js"></script>
-
-    <!-- <script>
-        const background = document.getElementById("body-wrapper");
-        console.log("hi");
-        console.log(background);
-        background.addEventListener("mousemove", event => {
-            console.log("hi");
-            event.preventDefault();
-            var upX = event.clientX;
-            var upY = event.clientY;
-            var mask = $('#mask1 circle')[0];
-            mask.setAttribute("cy", (upY - 5) + 'px');
-            mask.setAttribute("cx", (upX) + 'px');
-        })
-    </script> -->
 </body>
-
 </html>

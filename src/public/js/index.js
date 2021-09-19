@@ -32,7 +32,7 @@ $(() => {
 
     function makeClearMatchPositionOfBlur(element) {
         const elementRect = element.getBoundingClientRect();
-        const elementBackground = element.querySelector('.clear');
+        const elementBackground = element.querySelector('.background-image');
         elementBackground.style.left = `${-elementRect.x}px`;
         elementBackground.style.top = `${-elementRect.y}px`;
     }
