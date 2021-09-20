@@ -28,36 +28,8 @@ ul {
     list-style-type: none;
 }
 
-.absolute-center {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-
 .position-relative {
     position: relative;
-}
-
-.flex-center-space-around {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-}
-
-.flex-column {
-    display: flex;
-    flex-direction: column;
-}
-
-.overflow-hidden {
-    overflow: hidden;
-}
-
-.absolute-top-left {
-    position: absolute;
-    top: 0;
-    left: 0;
 }
 
 .background-cover {

@@ -14,11 +14,17 @@
 #content-wrapper {
     display: flex;
     flex-direction: column;
+    align-items: center;
+    justify-content: center;
     height: fit-content;
     width: fit-content;
     max-height: 90vh;
     max-width: 90vw;
     row-gap: 5vh;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 .background-image {
@@ -26,39 +32,61 @@
     background-size: cover;
     height: 100vh;
     width: 100vw;
+
+    position: absolute;
+    top: 0;
+    left: 0;
 }
 
 #background {
-    background-size: cover;
     z-index: -99;
     filter: grayscale(100%) blur(3px);
 }
 
 #title {
-    font-size: xx-large;
-    font-weight: bolder;
-    color: whitesmoke;
+    font-size: 5rem;
+    color: transparent;
+    -webkit-text-stroke: 1px white;
     min-width: 300px;
     text-align: center;
     line-height: 10rem;
     vertical-align: middle;
+    overflow: hidden;
+    position: relative;
 }
+
+#title::after {
+    content: 'HEY ITS NOT READY';
+    color: white;
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    animation: flow-animation 4s ease-in-out infinite;
+}
+
+@keyframes flow-animation {
+    0%, 100% {
+        clip-path: polygon(0 51%, 10% 45%, 18% 39%, 27% 36%, 34% 41%, 40% 49%, 47% 55%, 56% 56%, 66% 54%, 75% 52%, 85% 52%, 94% 54%, 100% 55%, 100% 100%, 0% 100%);
+    }
+
+    50% {
+        clip-path: polygon(0 34%, 6% 42%, 13% 49%, 22% 55%, 33% 53%, 43% 48%, 53% 40%, 62% 34%, 72% 35%, 80% 40%, 87% 47%, 94% 53%, 100% 56%, 100% 100%, 0% 100%);
+    }
+}
+
+/* list-item */
 
 #list {
     height: 25rem;
     width: fit-content;
     color: black;
     font-weight: bold;
-}
-
-.list-item-arrangement {
-    position: relative;
 
     display: flex;
+    justify-content: space-around;
     align-items: center;
-    justify-content: center;
     flex-direction: column;
-    flex-wrap: wrap;
 }
 
 .list-item {
@@ -66,15 +94,19 @@
     width: 15rem;
     opacity: 1;
     max-width: 90vw;
-    border: 1px solid white;
-    /* border-radius: 10px;
-    box-shadow: 0px 0px 10px 0px black; */
     perspective: 600px;
     transition: 
-        font-size 0.5s ease-out, 
+        border 0.3s,
         height 0.2s cubic-bezier(0, 0, 0, 1), 
-        width 0.4s cubic-bezier(0, 0, 0, 1),
-        opacity 0.2s;
+        width 0.4s cubic-bezier(0, 0, 0, 1);
+
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+    overflow: hidden;
 }
 
 .list-item>* {
@@ -86,24 +118,19 @@
 }
 
 a {
-    color: black;
+    font-size: x-large;
+    color: white;
     padding: 0;
     pointer-events: none;
     user-select: none;
-    opacity: 1;
-    transition:
-        top 0.3s,
-        left 0.3s,
-        transform 0.3s,
-        color 0.3s,
-        opacity 0.3s,
-        text-shadow 0.3s;
 }
 
-.list-item:hover {
+.list-item-hover-in {
     cursor: pointer;
 }
 
+
+/* cube */
 
 .cube {
     height: 100%;
@@ -111,7 +138,13 @@ a {
     position: relative;
     transform-style: preserve-3d;
     /* transform: rotateX(90deg); */
-    transition: transform 0.5s cubic-bezier(0, 0, 0.3, 0.8);
+    transition: transform 0.5s;
+}
+
+.cube {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .cube-face {
@@ -119,16 +152,8 @@ a {
     width: 100%;
     z-index: 99;
     position: absolute;
-    /* outline: 1px solid black; */
     top: 50%;
     left: 50%;
-    display: flex;
-    align-items: center;
-    transform-origin: center;
-    justify-content: center;
-    /* transition:
-        height 0.2s cubic-bezier(0, 0, 0, 1), 
-        width 0.4s cubic-bezier(0, 0, 0, 1); */
 }
 
 .cube-face-front {
@@ -155,36 +180,41 @@ a {
     transform: translate(-50%, -50%) translateY(-50%) rotateX(90deg);
 }
 
-.cube-face-front,
-.cube-face-left,
-.cube-face-right,
-.cube-face-back {
+.cube-inner>.cube-face-top {
+    transform: translate(-50%, -50%) translateY(-50%) rotateX(-90deg) rotateY(180deg);
+}
+
+.list-item-hover-in .cube-outer>.cube-face-front,
+.list-item-hover-in .cube-outer>.cube-face-left,
+.list-item-hover-in .cube-outer>.cube-face-right,
+.list-item-hover-in .cube-outer>.cube-face-back {
     border: 1px solid white;
 }
 
+.list-item {
+    border: 3px solid white;
+    box-shadow: inset 0px 0px 100px 5px black;
+}
 
-/* .list-item:hover>a {
-    text-shadow: none;
-    opacity: 0;
-} */
+.list-item:hover {
+    border: 1px solid white;
+}
 
-/* .list-item:hover>.description {
-    height: 50%;
-    padding-top: 1rem;
-    opacity: 1;
-} */
-
-
-/* animation class control by js */
+.cube-face {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
 
-/* adjust dimension and sibling opacity */
 
-.list-item-hover-siblings {
+/* list item hover */
+
+.list-item-hover-in-siblings {
     opacity: 0.3;
 }
 
-.list-item-hover {
+.list-item-hover-in {
     height: 10rem;
     width: 30rem;
 }
@@ -194,36 +224,55 @@ a {
     width: 28rem;
 }
 
-/* rotate cube */
-
-.cube-rotate-left>.cube {
-    transform: rotateY(180deg);
+@keyframes outer-cube-animation-in {
+    from {
+        transform: rotateY(0deg);
+    }
+    to {
+        transform: rotateY(180deg);
+    }
 }
 
-.cube-rotate-right>.cube {
-    transform: rotateY(-180deg);
+@keyframes inner-cube-animation-in {
+    from {
+        transform: rotateX(0deg);
+    }
+    to {
+        transform: rotateX(90deg);
+    }
 }
 
-/* cube text effects */
-.cube-face a {
-    transition: filter 0.5s, color 0.5s;
+@keyframes outer-cube-animation-out {
+    from {
+        transform: rotateY(180deg);
+    }
+    to {
+        transform: rotateY(0deg);
+    }
 }
 
-.cube-face-front a {
-    color: white;
-    filter: blur(0px);
+@keyframes inner-cube-animation-out {
+    from {
+        transform: rotateX(90deg);
+    }
+    to {
+        transform: rotateX(0deg);
+    }
 }
 
-.cube-face-back a {
-    filter: blur(1px);
+.list-item-hover-in .cube-outer {
+    animation: outer-cube-animation-in 0.5s 0.4s forwards;
 }
 
-.list-item-hover .cube-face-front a {
-    color: black;
-    filter: blur(1px);
+.list-item-hover-in .cube-inner {
+    animation: inner-cube-animation-in 0.5s forwards;
 }
 
-.list-item-hover .cube-face-back a {
-    color: white;
-    filter: blur(0px);
+.list-item-hover-out .cube-outer {
+    animation: outer-cube-animation-out 0.5s forwards;
 }
+
+.list-item-hover-out .cube-inner {
+    animation: inner-cube-animation-out 0.5s forwards;
+}
+

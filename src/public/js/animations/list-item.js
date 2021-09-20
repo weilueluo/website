@@ -4,11 +4,9 @@ import { addClass, addSiblingsClass, removeSiblingsClass, removeClass } from "..
 (() => {
 
     const hoverSiblingClass = "list-item-hover-siblings";
-    const hoverClass = "list-item-hover";
+    const hoverInClass = "list-item-hover-in";
+    const hoverOutClass = "list-item-hover-out";
     const mousedownClass = "list-item-mouse-down";
-
-    const cubeRotateLeftClass = "cube-rotate-left";
-    const cubeRotateRightClass = "cube-rotate-right";
 
     document.querySelectorAll(".list-item").forEach(listItem => {
 
@@ -32,17 +30,14 @@ import { addClass, addSiblingsClass, removeSiblingsClass, removeClass } from "..
         /* hover */
 
         listItem.addEventListener("mouseenter", event => {
-            if (Math.random() < 0.5) {
-                addClass(event.target, cubeRotateLeftClass);
-            } else {
-                addClass(event.target, cubeRotateRightClass);
-            }
-            addClass(event.target, hoverClass);
+            addClass(event.target, hoverInClass);
+            removeClass(event.target, hoverOutClass);
             addSiblingsClass(event.target, hoverSiblingClass);
         })
 
         listItem.addEventListener("mouseout", event => {
-            removeClass(event.target, hoverClass, cubeRotateLeftClass, cubeRotateRightClass);
+            removeClass(event.target, hoverInClass);
+            addClass(event.target, hoverOutClass);
             removeSiblingsClass(event.target, hoverSiblingClass);
         })
     })
