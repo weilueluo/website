@@ -1,4 +1,5 @@
 import { getMouseInfo } from "./components/mouse.js"
+import {getComputedStyle} from "./components/utils.js"
 
 $(() => {
 
@@ -36,4 +37,14 @@ $(() => {
         elementBackground.style.left = `${-elementRect.x}px`;
         elementBackground.style.top = `${-elementRect.y}px`;
     }
+
+    // translate top & bottom face to correct place
+    const listItem = document.querySelector('.list-item');
+    document.querySelectorAll(".cube-face-top").forEach(item => {
+        const currentTransform = getComputedStyle(item, 'transform');
+        console.log(currentTransform);
+        console.log(listItem.offsetHeight);
+        // item.style.transform = currentTransform + ` translateZ(-${listItem.offsetHeight / 2}px)`;
+        console.log(item.style.transform);
+    })
 })

@@ -3,7 +3,7 @@ import { addClass, addSiblingsClass, removeSiblingsClass, removeClass } from "..
 
 (() => {
 
-    const hoverSiblingClass = "list-item-hover-siblings";
+    const hoverSiblingClass = "list-item-hover-in-siblings";
     const hoverInClass = "list-item-hover-in";
     const hoverOutClass = "list-item-hover-out";
     const mousedownClass = "list-item-mouse-down";

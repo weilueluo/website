@@ -29,3 +29,7 @@ export function addSiblingsClass(element, ...clazz) {
 export function removeSiblingsClass(element, ...clazz) {
     applyToAllElementSiblings(element, sibling => sibling.classList.remove(...clazz));
 }
+
+export function getComputedStyle(element, name) {
+    return window.getComputedStyle(element).getPropertyValue(name);
+}
