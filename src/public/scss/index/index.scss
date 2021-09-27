@@ -1,0 +1,309 @@
+@use "../mixins" as *;
+@import "../base";
+@import "mini-cv";
+
+$background-image: url("../image/background.jpg");
+$title: "PROTOTYPE WEILUE";
+
+* {
+    transition: height 0.3s, width 0.3s;
+}
+
+*::selection {
+    background-color: gray;
+    color: white;
+}
+
+span,
+a {
+    white-space: nowrap;
+}
+
+@mixin gray-blur {
+    filter: grayscale(100%) blur(3px);
+}
+
+@mixin non-gray-blur {
+    filter: grayscale(0%) blur(0px);
+}
+
+#all-wrapper {
+    @include dimension-viewport;
+}
+
+#content-wrapper {
+    @include flex-center-items;
+    @include absolute-center;
+    @include dimension-fit-content;
+    flex-direction: column;
+    height: 100vh;
+    width: 100vw;
+    row-gap: 5vh;
+    overflow: hidden;
+}
+
+.background-image {
+    @include dimension-viewport;
+    @include absolute-top-left;
+    @include gray-blur;
+
+    background-image: $background-image;
+    background-size: cover;
+    z-index: -1;
+}
+
+#background {
+    z-index: -99;
+}
+
+#title-wrapper {
+    @include dimension-fit-content;
+
+    #title {
+        @include text-center;
+        $theme-color: rgb(65, 63, 63);
+
+    
+        font-size: min(4rem, 8vw);
+        color: transparent;
+        -webkit-text-stroke: 1px $theme-color;
+        filter: drop-shadow(0px 0px 2px white);
+
+    
+        &::after {
+
+            @include absolute-top-left;
+            content: $title;
+            color: $theme-color;
+            animation: flow-animation 4s ease-in-out infinite;
+            box-shadow: 0px 0px 5px 0px white;
+        }
+    
+        @keyframes flow-animation {
+            0%,
+            100% {
+                clip-path: polygon(
+                    0 51%,
+                    10% 45%,
+                    18% 39%,
+                    27% 36%,
+                    34% 41%,
+                    40% 49%,
+                    47% 55%,
+                    56% 56%,
+                    66% 54%,
+                    75% 52%,
+                    85% 52%,
+                    94% 54%,
+                    100% 55%,
+                    100% 100%,
+                    0% 100%
+                );
+            }
+        
+            50% {
+                clip-path: polygon(
+                    0 34%,
+                    6% 42%,
+                    13% 49%,
+                    22% 55%,
+                    33% 53%,
+                    43% 48%,
+                    53% 40%,
+                    62% 34%,
+                    72% 35%,
+                    80% 40%,
+                    87% 47%,
+                    94% 53%,
+                    100% 56%,
+                    100% 100%,
+                    0% 100%
+                );
+            }
+        }
+    }
+}
+
+#list {
+    height: 25rem;
+    width: fit-content;
+    color: black;
+
+    @include flex-space-around-center;
+    flex-direction: column;
+}
+
+.mini-cv {
+    opacity: 0;
+    transform: rotateZ(180deg);
+}
+
+$list-item-width: 15rem;
+$list-item-height: 3rem;
+
+.list-item {
+    
+    height: $list-item-height;
+    width: $list-item-width;
+
+    @include flex-center-items;
+    flex-direction: column;
+    flex-wrap: wrap;
+    position: relative;
+
+    opacity: 1;
+    perspective: 600px;
+    transition: 
+        border 0.3s,
+        height 0.2s cubic-bezier(0, 0, 0, 1), 
+        width 0.4s cubic-bezier(0, 0, 0, 1), 
+        filter 0.3s,
+        opacity 0.5s;
+
+    * {
+        pointer-events: none;
+    }
+
+    a {
+        font-size: large;
+        color: white;
+        padding: 0;
+        pointer-events: none;
+        user-select: none;
+    }
+
+    .cube {
+        @include dimension-fill;
+        @include flex-center-items;
+
+        position: relative;
+        transform-style: preserve-3d;
+        /* transform: rotateY(90deg); */
+        transition: transform 0.5s;
+
+        .cube-face {
+            @include dimension-fill;
+            @include absolute-center;
+            @include flex-center-items;
+            overflow: hidden;
+        }
+
+        .cube-face-front {
+            transform: translate(-50%, -50%) rotateX(90deg) translateY(50%) rotateX(-90deg);
+        }
+
+        .cube-face-back {
+            transform: translate(-50%, -50%) rotateX(-90deg) translateY(50%) rotateX(-90deg);
+        }
+
+        .cube-face-left {
+            transform: translate(-50%, -50%) translateX(-50%) rotateY(-90deg);
+        }
+
+        .cube-face-right {
+            transform: translate(-50%, -50%) translateX(50%) rotateY(90deg);
+        }
+
+        .cube-face-top {
+            transform: translate(-50%, -50%) translateY(-50%) rotateX(90deg);
+        }
+
+        .cube-face-bottom {
+            transform: translate(-50%, -50%) translateY(50%) rotateX(-90deg);
+        }
+    }
+}
+
+
+
+// added by js
+.list-item-hover-in-siblings {
+    opacity: 0;
+}
+
+.background-cube {
+    @include dimension-fill;
+    position: relative;
+    transform-style: preserve-3d;
+}
+
+.list-item-background-image-container {
+    @include dimension-fill;
+    @include absolute-center;
+    overflow: hidden;
+}
+
+.list-item-hover-in {
+
+    height: 15rem;
+    width: 10rem;
+    cursor: pointer;
+
+    a {
+        text-shadow: 0px 0px 5px black;
+    }
+
+    .background-cube {
+        // transform: rotateX(45deg);
+    }
+
+    .mini-cv {
+        opacity: 0.7;
+        transition: opacity 0.5s 0.5s;
+    }
+
+    .cube {
+        animation: rotate-180deg 0.5s forwards;
+        @keyframes rotate-180deg {
+            0% {
+                transform: rotateX(0deg);
+            }
+            100% {
+                transform: rotateX(-180deg);
+            }
+        }
+    }
+
+    .background-image {
+        @include non-gray-blur;
+        transition: filter 1s;
+    }
+
+    .list-item-background-image-container {
+        transition: height 0.5s, width 0.5s, transform 0.5s 0.2s;
+        border: 1px solid white;
+        transform: translate(-50%, -50%) rotateX(45deg);
+        // clip-path: polygon(0% 0%, 13% 6%, 24% 10%, 35% 11%, 46% 10%, 55% 8%, 68% 5%, 78% 5%, 89% 8%, 100% 14%, 
+        //                 100% 100%, 89% 94%, 78% 91%, 68% 91%, 55% 94%, 46% 96%, 35% 97%, 24% 96%, 12% 92%, 0% 86%);
+        // clip-path: url(#cv-clip-path);
+    }
+
+    .list-item-background-image-container:nth-of-type(2) {
+        transform: translate(-50%, -50%) rotateX(45deg) translateZ(10px);
+    }
+
+    .list-item-background-image-container:nth-of-type(3) {
+        transform: translate(-50%, -50%) rotateX(45deg) translateZ(-10px);
+    }
+}
+
+.list-item-hover-out {
+    .cube {
+        animation: rotate-180deg-reverse 0.5s forwards;
+    }
+    @keyframes rotate-180deg-reverse {
+        0% {
+            transform: rotateX(-180deg);
+        }
+        100% {
+            transform: rotateX(0deg);
+        }
+    }
+}
+
+.list-item-mouse-down {
+    // height: $list-item-height * 0.8;
+    // width: $list-item-width * 0.8;
+}
+
+// clip-path: polygon(20% 16%, 27% 21%, 35% 25%, 43% 26%, 51% 21%, 59% 18%, 68% 17%, 76% 20%, 80% 22%, 80% 76%, 72% 72%, 64% 70%, 55% 71%, 47% 74%, 38% 77%, 28% 75%, 20% 72%);

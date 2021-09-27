@@ -1,0 +1,96 @@
+.mini-cv {
+    height: 100%;
+    width: 100%;
+    background: black;
+    position: relative;
+    display: grid;
+    grid-template-areas: 
+        "photo details"
+        "content content";
+    padding: 10%;
+    grid-gap: 5%;
+}
+
+.photo {
+    grid-area: photo;
+    background: white;
+    position: relative;
+    
+    .head {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 2rem;
+        height: 2rem;
+        border-radius: 50%;
+        background: black;
+    }
+
+    .body {
+        position: absolute;
+        top: 50%;
+        bottom: 0;
+        background: black;
+        height: 50%;
+        width: 100%;
+        clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+    }
+}
+
+.details {
+    grid-area: details;
+}
+
+.content {
+    grid-area: content;
+}
+
+.details,
+.content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.line {
+    height: 0.2rem;
+    width: 100%;
+    background: white;
+    position: relative;
+
+
+    &::after, &::before {
+        content: '';
+        height: 0.2rem;
+        width: 0.2rem;
+        background: black;
+        position: absolute;
+        top: 0;
+    }
+}
+
+@for $i from 1 through 5 {
+    .details .line:nth-of-type(#{$i})::after {
+        left: percentage(random());
+        width: random() + rem;
+    }
+    #details .line:nth-of-type(#{$i})::before {
+        left: percentage(random());
+        width: random() + rem;
+    }
+}
+
+
+
+@for $i from 1 through 7 {
+    .content .line:nth-of-type(#{$i})::after {
+        left: percentage(random());
+        width: random() + rem;
+    }
+    #content .line:nth-of-type(#{$i})::before {
+        left: percentage(random());
+        width: random() + rem;
+    }
+}
