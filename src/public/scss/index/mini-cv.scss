@@ -14,27 +14,33 @@
 .photo {
     grid-area: photo;
     background: white;
-    position: relative;
-    
-    .head {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        width: 2rem;
-        height: 2rem;
-        border-radius: 50%;
-        background: black;
-    }
 
-    .body {
-        position: absolute;
-        top: 50%;
-        bottom: 0;
-        background: black;
-        height: 50%;
+
+    .human {
+        height: 100%;
         width: 100%;
-        clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+        position: relative;
+
+        .head {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 2rem;
+            height: 2rem;
+            border-radius: 50%;
+            background: black;
+        }
+    
+        .body {
+            position: absolute;
+            top: 50%;
+            bottom: 0;
+            background: black;
+            height: 50%;
+            width: 100%;
+            clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+        }
     }
 }
 
@@ -52,10 +58,14 @@
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
+
+    overflow: hidden;
 }
 
+$line-height: 0.2rem;
+
 .line {
-    height: 0.2rem;
+    height: $line-height;
     width: 100%;
     background: white;
     position: relative;
@@ -63,34 +73,33 @@
 
     &::after, &::before {
         content: '';
-        height: 0.2rem;
-        width: 0.2rem;
+        height: $line-height;
+        width: $line-height;
         background: black;
         position: absolute;
         top: 0;
     }
 }
 
+@mixin gap-style() {
+    left: percentage(random());
+    width: random() + 0.1 + rem;
+}
+
 @for $i from 1 through 5 {
     .details .line:nth-of-type(#{$i})::after {
-        left: percentage(random());
-        width: random() + rem;
+        @include gap-style();
     }
     #details .line:nth-of-type(#{$i})::before {
-        left: percentage(random());
-        width: random() + rem;
+        @include gap-style();
     }
 }
 
-
-
 @for $i from 1 through 7 {
     .content .line:nth-of-type(#{$i})::after {
-        left: percentage(random());
-        width: random() + rem;
+        @include gap-style();
     }
     #content .line:nth-of-type(#{$i})::before {
-        left: percentage(random());
-        width: random() + rem;
+        @include gap-style();
     }
 }

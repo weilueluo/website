@@ -1,0 +1,97 @@
+doctype html
+html(lang='en')
+    head
+        meta(charset='utf-8')
+        meta(name='viewport' content='width=device-width, initial-scale=1.0')
+        title Hello World
+
+        // stylesheet
+        link(rel='stylesheet' href='css/index.css')
+
+        // font
+        link(rel='preconnect' href='https://fonts.googleapis.com')
+        link(rel='preconnect' href='https://fonts.gstatic.com' crossorigin)
+        link(rel='stylesheet' href='https://fonts.googleapis.com/css2?family=Fira+Code&display=swap' crossorigin)
+
+        // favicon
+        link(rel='apple-touch-icon' sizes='180x180' href='icon/apple-touch-icon.png')
+        link(rel='icon' type='image/png' sizes='32x32' href='icon/favicon-32x32.png')
+        link(rel='icon' type='image/png' sizes='16x16' href='icon/favicon-16x16.png')
+        link(rel='manifest' href='site.webmanifest')
+    body
+        #all-wrapper
+            #content-wrapper 
+                #title-wrapper
+                    span#title PROTOTYPE WEILUE
+                ul#list 
+                    - 
+                        const params = {
+                            cv: { 
+                                mixin: 'cv',
+                                name: 'CV', 
+                                description: 'View My Career.'
+                            },
+                            waifu: {
+                                mixin: 'waifu',
+                                name: 'WAIFUS', 
+                                description: 'View My Hobbies.'
+                            },
+                            about: {
+                                mixin: 'about',
+                                name: 'ABOUT', 
+                                description: 'View This Website.'
+                            }
+                        }
+                    mixin cv
+                        each _ in Array(3)
+                            .background-image-container
+                                .background-image 
+                                .mini-cv
+                                    .photo
+                                        .human 
+                                            .head 
+                                            .body 
+                                    .details 
+                                        each _ in Array(5)
+                                            .line 
+                                    .content 
+                                        each _ in Array(7)
+                                            .line
+                    mixin waifu
+                        .background-image-container 
+                            .background-image 
+                            include includes/mona_no_color.svg
+                            .water-curtain 
+                                .curtain
+                                .mona
+                    mixin about
+                        .background-image-container 
+                            .background-image 
+
+                    each param, key in params
+                        li.list-item 
+                            .cube
+                                .background-cube
+                                   +#{param.mixin}()
+                                .cube-face.cube-face-front 
+                                    a(href='#') #{param.name}
+                                .cube-face.cube-face-left 
+                                .cube-face.cube-face-right 
+                                .cube-face.cube-face-back 
+                                    a(href='#') #{param.description}
+                                .cube-face.cube-face-bottom 
+                                .cube-face.cube-face-top 
+
+            #alert 
+            
+            // https://www.pixiv.net/artworks/84885989
+            #background.background-image
+
+            // svg filter
+            include includes/water_curtain.svg
+
+
+        script(src='js/dependencies/jquery-3.6.0.min.js')
+        script(src='js/index.js', type='module')
+        script(src='js/animations/list-item.js', type='module')
+
