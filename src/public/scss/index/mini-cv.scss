@@ -86,20 +86,27 @@ $line-height: 0.2rem;
     width: random() + 0.1 + rem;
 }
 
-@for $i from 1 through 5 {
-    .details .line:nth-of-type(#{$i})::after {
-        @include gap-style();
-    }
-    #details .line:nth-of-type(#{$i})::before {
-        @include gap-style();
+@for $j from 1 through 3 {
+    .background-image-container:nth-of-type(#{$j}) {
+        @for $i from 1 through 5 {
+            .details .line:nth-of-type(#{$i})::after {
+                @include gap-style();
+            }
+            .details .line:nth-of-type(#{$i})::before {
+                @include gap-style();
+            }
+        }
+
+        @for $i from 1 through 7 {
+            .content .line:nth-of-type(#{$i})::after {
+                @include gap-style();
+            }
+            .content .line:nth-of-type(#{$i})::before {
+                @include gap-style();
+            }
+        }
     }
 }
 
-@for $i from 1 through 7 {
-    .content .line:nth-of-type(#{$i})::after {
-        @include gap-style();
-    }
-    #content .line:nth-of-type(#{$i})::before {
-        @include gap-style();
-    }
-}
+
+

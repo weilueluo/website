@@ -23,6 +23,7 @@ html(lang='en')
             #content-wrapper 
                 #title-wrapper
                     span#title PROTOTYPE WEILUE
+                //- params
                 ul#list 
                     - 
                         const params = {
@@ -42,6 +43,7 @@ html(lang='en')
                                 description: 'View This Website.'
                             }
                         }
+                    //- functions
                     mixin cv
                         each _ in Array(3)
                             .background-image-container
@@ -60,16 +62,19 @@ html(lang='en')
                     mixin waifu
                         .background-image-container 
                             .background-image 
-                            include includes/mona_no_color.svg
-                            .water-curtain 
-                                .curtain
-                                .mona
+                            .waifu
+                                .water-curtain 
+                                    .curtain
+                                    .mona
+                                include includes/mona_no_color.svg
+                                
                     mixin about
                         .background-image-container 
                             .background-image 
 
+                    //- render html
                     each param, key in params
-                        li.list-item 
+                        li.list-item(class="list-item-" + key)
                             .cube
                                 .background-cube
                                    +#{param.mixin}()

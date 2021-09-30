@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg">
-  <filter id="filter">
+  <filter id="wave-filter">
       <feTurbulence id="turbulence" type="turbulence" numOctaves="3" baseFrequency="0.01" seed="123" result="tur">
       </feTurbulence>
       <feDisplacementMap id="displacement" in="SourceGraphic" in2="tur" scale="20"  />

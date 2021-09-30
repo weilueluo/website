@@ -1,4 +1,5 @@
 @use "../mixins" as *;
+@use "sass:math";
 @import "../base";
 @import "mini-cv";
 
@@ -68,22 +69,19 @@ a {
         @include text-center;
         $theme-color: rgb(65, 63, 63);
 
-    
         font-size: min(4rem, 8vw);
         color: transparent;
         -webkit-text-stroke: 1px $theme-color;
         filter: drop-shadow(0px 0px 2px white);
 
-    
         &::after {
-
             @include absolute-top-left;
             content: $title;
             color: $theme-color;
             animation: flow-animation 4s ease-in-out infinite;
             box-shadow: 0px 0px 5px 0px white;
         }
-    
+
         @keyframes flow-animation {
             0%,
             100% {
@@ -105,7 +103,7 @@ a {
                     0% 100%
                 );
             }
-        
+
             50% {
                 clip-path: polygon(
                     0 34%,
@@ -161,11 +159,11 @@ a {
         .mini-cv {
             opacity: 0;
             transform: rotateZ(180deg);
-        
+
             .human {
                 bottom: -100%;
             }
-        
+
             @for $i from 1 through 5 {
                 .details .line:nth-of-type(#{$i}) {
                     @if random() > 0.5 {
@@ -175,7 +173,7 @@ a {
                     }
                 }
             }
-        
+
             @for $i from 1 through 7 {
                 .content .line:nth-of-type(#{$i}) {
                     @if random() > 0.5 {
@@ -189,10 +187,9 @@ a {
     }
 }
 
-
 // Waifu
 
-#mona-svg {
+.mona-svg {
     height: 100%;
     width: 100%;
 }
@@ -201,10 +198,18 @@ a {
     stroke-dasharray: 74000px;
     stroke-dashoffset: 74000px;
     fill: none;
-    stroke: white;
+    stroke: black;
     stroke-width: 4rem;
 }
 
+.waifu {
+    width: 90%;
+    height: 90%;
+    overflow: hidden;
+    position: absolute;
+    top: 5%;
+    left: 5%;
+}
 
 // Water Curtain
 .water-curtain {
@@ -216,15 +221,16 @@ a {
     z-index: -1;
     -webkit-mask: url(../image/mona_color.png);
     -webkit-mask-size: 100%;
+    -webkit-mask-repeat: no-repeat;
     transform: rotateY(180deg) rotateZ(180deg);
 
     .curtain {
-        height: 100%;
+        height: 120%;
         width: 120%;
         background: black;
-        filter: url(#filter);
+        filter: url(#wave-filter);
         position: absolute;
-        bottom: -100%;
+        bottom: -120%;
         left: -10%;
         z-index: 1;
         opacity: 0;
@@ -235,6 +241,7 @@ a {
         width: 100%;
         background: url(../image/mona_color.png);
         background-size: 100%;
+        background-repeat: no-repeat;
         position: absolute;
         top: 0;
         left: 0;
@@ -242,12 +249,10 @@ a {
     }
 }
 
-
 $list-item-width: 15rem;
 $list-item-height: 3rem;
 
 .list-item {
-    
     height: $list-item-height;
     width: $list-item-width;
 
@@ -258,11 +263,7 @@ $list-item-height: 3rem;
 
     opacity: 1;
     perspective: 600px;
-    transition: 
-        border 0.3s,
-        height 0.2s cubic-bezier(0, 0, 0, 1), 
-        width 0.4s cubic-bezier(0, 0, 0, 1), 
-        filter 0.3s,
+    transition: border 0.3s, height 0.2s cubic-bezier(0, 0, 0, 1), width 0.4s cubic-bezier(0, 0, 0, 1), filter 0.3s,
         opacity 0.5s;
 
     * {
@@ -319,36 +320,26 @@ $list-item-height: 3rem;
 
 // List Items Hover
 
-.list-item-hover-in {
-
-    height: 15rem;
-    width: 10rem;
-    cursor: pointer;
-
-    a {
-        text-shadow: 0px 0px 5px black;
-    }
-
-
-    // CV Stuff
+.list-item-hover-in.list-item-cv {
+    // randomize line animation and breaks
     @for $j from 1 through 3 {
         .background-image-container:nth-of-type(#{$j}) {
             .mini-cv {
                 opacity: 0.3;
                 transition: opacity 0.5s 0.2s;
-        
+
                 .human {
-                    transition: bottom  0.7s 0.5s ease-out;
+                    transition: bottom 0.7s 0.5s ease-out;
                     bottom: 0%;
                 }
-                
+
                 @for $i from 1 through 5 {
                     .details .line:nth-of-type(#{$i}) {
                         transition: left random() + 0.5 + s random() + 0.5 + s;
                         left: 0%;
                     }
                 }
-        
+
                 @for $i from 1 through 7 {
                     .content .line:nth-of-type(#{$i}) {
                         transition: left random() + 0.5 + s random() + 0.5 + s;
@@ -358,61 +349,118 @@ $list-item-height: 3rem;
             }
         }
     }
-    
 
-    // Waifu Stuff
-    #mona-svg {
+    .background-image-container {
+        transition: height 0.5s, width 0.5s, opacity 0.3s, transform 0.5s 0.2s, box-shadow 0.3s 0.5s, border 0.5s;
+        border: 1px solid white;
+        transform: translate(-50%, -50%);
+        box-shadow: 0px -3px 3px 0px black;
+    }
+
+    .background-image-container:nth-of-type(1) {
+        transform: translate(-50%, -50%) rotateX(45deg);
+        transition: transform 0.3s 0.5s;
+    }
+
+    .background-image-container:nth-of-type(2) {
+        animation: move-down-2 0.3s ease-out forwards;
+        animation-delay: 0.5s;
+    }
+
+    .background-image-container:nth-of-type(3) {
+        animation: move-down-3 0.3s ease-out forwards;
+        animation-delay: 0.5s;
+    }
+
+    @keyframes move-down-2 {
+        from {
+            transform: translate(-50%, -50%);
+        }
+        to {
+            transform: translate(-50%, -50%) rotateX(45deg) rotateZ(-20deg) translateX(25%) translateZ(30px);
+        }
+    }
+
+    @keyframes move-down-3 {
+        from {
+            transform: translate(-50%, -50%);
+        }
+        to {
+            transform: translate(-50%, -50%) rotateX(45deg) rotateZ(20deg) translateX(-25%) translateZ(50px);
+        }
+    }
+}
+
+
+.list-item-hover-in.list-item-waifu {
+    $curtain-dropped-time: 3.5s;
+
+    .waifu {
+        border: 2px solid black;
+    }
+
+    .mona-svg {
         transform: rotateX(180deg);
 
         .mona-path {
             stroke-dashoffset: 0px;
             transition: stroke-dashoffset 2s 0.5s ease-in-out;
-            animation: mona-path-animation 0.5s 2.5s forwards;
-        }
-
-        @keyframes mona-path-animation {
-            to {
-                stroke-width: 1rem;
-                stroke: black;
-            }
         }
     }
 
     .water-curtain {
-        filter: drop-shadow(0px 5px 5px white);
-        transition: filter 0.2s 4s;
-        animation: drop-shadow-animation 0.0001s 4s forwards;
-
-        @keyframes drop-shadow-animation {
-            0% {
-                backdrop-filter: drop-shadow(0px 5px 5px black);
-            }
-            100% {
-                backdrop-filter: none;
-            }
+        .mona {
+            opacity: 1;
+            transition: opacity 0s $curtain-dropped-time;
         }
 
         .curtain {
             opacity: 1;
-            animation: curtain-animation 3s 1s ease-out;
-        }
-
-        .mona {
-            opacity: 1;
-            transition: opacity 0s 2.5s;
+            animation: curtain-animation #{$curtain-dropped-time - 1s + 2.5s} 1s ease-out forwards;
         }
 
         @keyframes curtain-animation {
             0% {
-                bottom: -100%;
+                bottom: -120%;
             }
-            50%, 55% {
-                bottom: 0%;
+
+            @for $i from 1 through 6 {
+                #{percentage(math.div($i * 10 - random(5), 100))} {
+                    bottom: -#{percentage(math.div(120 - $i * 20, 120))};
+                } 
+            }
+
+            50%,
+            55% {
+                bottom: -0%;
             }
             100% {
-                bottom: -100%;
+                bottom: -120%;
             }
         }
+    }
+
+    .background-image {
+        filter: blur(5px);
+    }
+
+    .background-image-container {
+        transform: translate(-50%, -50%) rotateX(30deg);
+        box-shadow: 0px -3px 3px 0px black;
+        transition: 
+            transform 0.3s 0.5s,
+            box-shadow 0.3s;
+    }
+    
+}
+
+.list-item-hover-in {
+    height: 15rem;
+    width: 10rem;
+    cursor: pointer;
+
+    a {
+        text-shadow: 0px 0px 5px black;
     }
 
     .cube {
@@ -432,52 +480,7 @@ $list-item-height: 3rem;
         transition: filter 1s;
     }
 
-    .background-image-container {
-        transition: 
-            height 0.5s, 
-            width 0.5s, 
-            opacity 0.3s,
-            transform 0.5s 0.2s, 
-            box-shadow 0.3s 0.5s,
-            border 0.5s;
-        border: 1px solid white;
-        transform: translate(-50%, -50%);
-        box-shadow: 0px -3px 3px 0px black;
-    }
 
-    .background-image-container:nth-of-type(1) {
-        transform: translate(-50%, -50%) rotateX(45deg);
-        transition: transform 0.3s 0.5s;
-    }
-
-    .background-image-container:nth-of-type(2) {
-        animation: move-down-2 0.3s ease-out forwards;
-        animation-delay: 0.5s;
-
-    }
-
-    .background-image-container:nth-of-type(3) {
-        animation: move-down-3 0.3s ease-out forwards;
-        animation-delay: 0.5s;
-    }
-
-    @keyframes move-down-2 {
-        from {
-            transform: translate(-50%, -50%);
-        }
-        to {
-            transform: translate(-50%, -50%) rotateX(45deg) rotateZ(-20deg) translateX(25%) translateZ(30px);
-        }
-    }
-
-    @keyframes move-down-3 {
-        from {
-            transform: translate(-50%, -50%) ;
-        }
-        to {
-            transform: translate(-50%, -50%) rotateX(45deg)  rotateZ(20deg) translateX(-25%) translateZ(50px);
-        }
-    }
 }
 
 .list-item-hover-in-siblings {
