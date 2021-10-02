@@ -8,6 +8,8 @@ import { addClass, addSiblingsClass, removeSiblingsClass, removeClass } from "..
     const hoverOutClass = "list-item-hover-out";
     const mousedownClass = "list-item-mouse-down";
 
+    var clicked = 0;
+
     document.querySelectorAll(".list-item").forEach(listItem => {
 
         /* click */
@@ -20,6 +22,13 @@ import { addClass, addSiblingsClass, removeSiblingsClass, removeClass } from "..
                 if (!documentEvent.composedPath().includes(event.target)) {
                     removeClass(event.target, mousedownClass);
                 }
+                clicked++;
+                $('#clicked')
+                    .css('opacity', 1)
+                    .html(`Nothing happened, because it is not ready yet. counter=${clicked}`);
+                setTimeout(() => {
+
+                })
             }, { once: true })
         })
 

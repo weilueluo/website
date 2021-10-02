@@ -1,0 +1,58 @@
+@use "../utils" as *;
+
+$colored-mona-path: url(../image/mona_color.png);
+
+.mona-svg {
+    @include dimension-fill;
+}
+
+$mona-path-length: 76000px;  // TODO: use getTotalLength with js instead
+
+.mona-path {
+    stroke-dasharray: $mona-path-length;
+    stroke-dashoffset: $mona-path-length;
+    fill: none;
+    stroke: black;
+    stroke-width: 4rem;
+}
+
+.waifu {
+    width: 90%;
+    height: 90%;
+    overflow: hidden;
+    position: absolute;
+    top: 5%;
+    left: 5%;
+}
+
+.water-curtain {
+    @include dimension-fill;
+    @include absolute-top-left;
+    -webkit-mask: url(../image/mona_color.png);
+    -webkit-mask-size: 100%;
+    -webkit-mask-repeat: no-repeat;
+    transform: rotateY(180deg) rotateZ(180deg);
+    z-index: -1;
+}
+
+.curtain {
+    height: 120%;
+    width: 120%;
+    background: black;
+    filter: url(#wave-filter);
+    position: absolute;
+    bottom: -120%;
+    left: -10%;
+    z-index: 1;
+    opacity: 0;
+}
+
+.mona {
+    @include dimension-fill;
+    @include absolute-top-left;
+    
+    background: $colored-mona-path;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    opacity: 0;
+}

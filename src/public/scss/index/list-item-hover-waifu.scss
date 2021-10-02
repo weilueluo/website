@@ -1,0 +1,53 @@
+@use "sass:math";
+
+.list-item-hover-in.list-item-waifu {
+    $curtain-dropped-time: 3.5s;
+
+    .waifu {
+        border: 2px solid black;
+    }
+
+    .mona-svg {
+        transform: rotateX(180deg);
+
+        .mona-path {
+            stroke-dashoffset: 0px;
+            transition: stroke-dashoffset 2s 0.5s ease-in-out;
+        }
+    }
+
+    .water-curtain {
+        .mona {
+            opacity: 1;
+            transition: opacity 0s $curtain-dropped-time;
+        }
+
+        .curtain {
+            opacity: 1;
+            animation: curtain-animation #{$curtain-dropped-time + 1.5s} 1s forwards;
+        }
+
+        @keyframes curtain-animation {
+            0% {
+                bottom: -120%;
+            }
+
+            @for $i from 1 through 6 {
+                #{percentage(math.div($i * 10 - random(5), 100))} {
+                    bottom: -#{percentage(math.div(120 - $i * 20, 120))};
+                } 
+            }
+
+            50% {
+                bottom: 0%;
+            }
+            100% {
+                bottom: -120%;
+            }
+        }
+    }
+
+    .background-image {
+        filter: blur(5px);
+    }
+}

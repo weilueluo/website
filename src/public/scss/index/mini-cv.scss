@@ -1,24 +1,50 @@
+@use "../utils" as *;
+
 .mini-cv {
-    height: 100%;
-    width: 100%;
+    @include dimension-fill;
     background: black;
-    position: relative;
+    
+    position: relative;  // child absolute
+    // children positions
     display: grid;
     grid-template-areas: 
         "photo details"
         "content content";
     padding: 10%;
     grid-gap: 5%;
+
+    opacity: 0; // hide at start up, reveal later
+    transform: rotateZ(180deg);
+
+    @for $i from 1 through 5 {
+        .details .line:nth-of-type(#{$i}) {
+            @if random() > 0.5 {
+                left: 100%;
+            } @else {
+                left: -100%;
+            }
+        }
+    }
+
+    @for $i from 1 through 7 {
+        .content .line:nth-of-type(#{$i}) {
+            @if random() > 0.5 {
+                left: 100%;
+            } @else {
+                left: -100%;
+            }
+        }
+    }
 }
 
 .photo {
     grid-area: photo;
     background: white;
 
-
     .human {
         height: 100%;
         width: 100%;
+        bottom: -100%;
         position: relative;
 
         .head {

@@ -45,20 +45,19 @@ html(lang='en')
                         }
                     //- functions
                     mixin cv
-                        each _ in Array(3)
-                            .background-image-container
-                                .background-image 
-                                .mini-cv
-                                    .photo
-                                        .human 
-                                            .head 
-                                            .body 
-                                    .details 
-                                        each _ in Array(5)
-                                            .line 
-                                    .content 
-                                        each _ in Array(7)
-                                            .line
+                        .background-image-container
+                            .background-image 
+                            .mini-cv
+                                .photo
+                                    .human 
+                                        .head 
+                                        .body 
+                                .details 
+                                    each _ in Array(5)
+                                        .line 
+                                .content 
+                                    each _ in Array(7)
+                                        .line
                     mixin waifu
                         .background-image-container 
                             .background-image 
@@ -80,14 +79,14 @@ html(lang='en')
                                    +#{param.mixin}()
                                 .cube-face.cube-face-front 
                                     a(href='#') #{param.name}
-                                .cube-face.cube-face-left 
-                                .cube-face.cube-face-right 
                                 .cube-face.cube-face-back 
                                     a(href='#') #{param.description}
                                 .cube-face.cube-face-bottom 
                                 .cube-face.cube-face-top 
 
             #alert 
+            
+            #clicked 
             
             // https://www.pixiv.net/artworks/84885989
             #background.background-image

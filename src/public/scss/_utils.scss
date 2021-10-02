@@ -43,3 +43,30 @@
     width: fit-content;
 }
 
+@function tf-center() {
+    @return translate(-50%, -50%);
+}
+
+@function tf-backwards($amount) {
+    @return translateZ(-$amount);
+}
+
+@function tf-forwards($amount) {
+    @return translateZ($amount);
+}
+
+@function tf-face-top() {
+    @return rotateX(90deg);
+}
+
+@function tf-face-bottom() {
+    @return rotateX(-90deg);
+}
+
+@function tf-up($amount) {
+    @return translateY($amount);
+}
+
+@function tf-down($amount) {
+    @return translateY(-$amount);
+}

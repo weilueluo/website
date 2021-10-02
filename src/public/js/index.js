@@ -10,7 +10,7 @@ $(() => {
     // random stuff
     $(document).on("mousemove", () => {
         const info = getMouseInfo();
-        $("#alert").html(`x=${info.x}, y=${info.y}, speedX=${info.speedX}, speedY=${info.speedY}`)
+        $("#alert").html(`x=${info.x}, y=${info.y}, speedX=${info.speedX}, speedY=${info.speedY}`);
     });
 
     // position the clear background in list-item on list-item resize, so that it match the background
@@ -37,6 +37,5 @@ $(() => {
             background.style.left = `${-elementRect.x}px`;
             background.style.top = `${-elementRect.y}px`;
         });
-        
     }
 })
