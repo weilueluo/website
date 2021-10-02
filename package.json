@@ -1,0 +1,10 @@
+{
+  "dependencies": {
+    "autoprefixer": "^10.3.6",
+    "postcss-cli-simple": "^3.1.0"
+  },
+  "devDependencies": {
+    "postcss": "^8.3.8",
+    "postcss-cli": "^9.0.1"
+  }
+}
