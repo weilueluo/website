@@ -1,4 +1,4 @@
-import { addClass, addSiblingsClass, removeSiblingsClass, removeClass } from "../components/utils.js";
+import { addClass, addSiblingsClass, removeSiblingsClass, removeClass } from "./components/utils.js";
 
 
 (() => {
@@ -51,4 +51,8 @@ import { addClass, addSiblingsClass, removeSiblingsClass, removeClass } from "..
         })
     })
 
+    // open cv when clicked
+    document.querySelector(".list-item-cv").addEventListener('click', event => {
+        window.open('assets/cv.pdf', '_blank');
+    })
 })()

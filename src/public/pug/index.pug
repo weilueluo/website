@@ -14,15 +14,15 @@ html(lang='en')
         link(rel='stylesheet' href='https://fonts.googleapis.com/css2?family=Fira+Code&display=swap' crossorigin)
 
         // favicon
-        link(rel='apple-touch-icon' sizes='180x180' href='icon/apple-touch-icon.png')
-        link(rel='icon' type='image/png' sizes='32x32' href='icon/favicon-32x32.png')
-        link(rel='icon' type='image/png' sizes='16x16' href='icon/favicon-16x16.png')
+        link(rel='apple-touch-icon' sizes='180x180' href='assets/icon/apple-touch-icon.png')
+        link(rel='icon' type='image/png' sizes='32x32' href='assets/icon/favicon-32x32.png')
+        link(rel='icon' type='image/png' sizes='16x16' href='assets/icon/favicon-16x16.png')
         link(rel='manifest' href='site.webmanifest')
     body
         #all-wrapper
             #content-wrapper 
                 #title-wrapper
-                    span#title PROTOTYPE WEILUE
+                    span#title It iS NoT REaDy YeT
                 //- params
                 ul#list 
                     - 
@@ -45,19 +45,20 @@ html(lang='en')
                         }
                     //- functions
                     mixin cv
-                        .background-image-container
-                            .background-image 
-                            .mini-cv
-                                .photo
-                                    .human 
-                                        .head 
-                                        .body 
-                                .details 
-                                    each _ in Array(5)
-                                        .line 
-                                .content 
-                                    each _ in Array(7)
-                                        .line
+                        each _ in Array(2)
+                            .background-image-container
+                                .background-image 
+                                .mini-cv
+                                    .photo
+                                        .human 
+                                            .head 
+                                            .body 
+                                    .details 
+                                        each _ in Array(5)
+                                            .line 
+                                    .content 
+                                        each _ in Array(7)
+                                            .line
                     mixin waifu
                         .background-image-container 
                             .background-image 
@@ -97,5 +98,5 @@ html(lang='en')
 
         script(src='js/dependencies/jquery-3.6.0.min.js')
         script(src='js/index.js', type='module')
-        script(src='js/animations/list-item.js', type='module')
+        script(src='js/list-item.js', type='module')
 

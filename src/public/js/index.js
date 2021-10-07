@@ -1,5 +1,4 @@
 import { getMouseInfo } from "./components/mouse.js"
-import {getComputedStyle} from "./components/utils.js"
 
 $(() => {
 
@@ -16,26 +15,27 @@ $(() => {
     // position the clear background in list-item on list-item resize, so that it match the background
     const resizeObserver = new ResizeObserver(events => {
         events.forEach(event => {
-            makeClearMatchPositionOfBlur(event.target);
+            makeMatchBackgroundImage(event.target);
         })
     });
     document.querySelectorAll(".list-item").forEach(item => {
-        makeClearMatchPositionOfBlur(item);
+        makeMatchBackgroundImage(item);
         resizeObserver.observe(item);
     })
 
     // position all list items on window resize
     window.addEventListener('resize', () => {
         document.querySelectorAll(".list-item").forEach(item => {
-            makeClearMatchPositionOfBlur(item);
+            makeMatchBackgroundImage(item);
         })
     })
 
-    function makeClearMatchPositionOfBlur(element) {
+    function makeMatchBackgroundImage(element) {
         const elementRect = element.getBoundingClientRect();
         element.querySelectorAll('.background-image').forEach(background => {
             background.style.left = `${-elementRect.x}px`;
             background.style.top = `${-elementRect.y}px`;
         });
     }
+
 })
