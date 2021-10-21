@@ -75,15 +75,15 @@ html(lang='en')
                     //- render html
                     each param, key in params
                         li.list-item(class="list-item-" + key)
-                            .cube
-                                .background-cube
-                                   +#{param.mixin}()
-                                .cube-face.cube-face-front 
-                                    a(href='#') #{param.name}
-                                .cube-face.cube-face-back 
-                                    a(href='#') #{param.description}
-                                .cube-face.cube-face-bottom 
-                                .cube-face.cube-face-top 
+                                .cube
+                                    .background-cube
+                                    +#{param.mixin}()
+                                    .cube-face.cube-face-front 
+                                        a(href='#') #{param.name}
+                                    .cube-face.cube-face-back 
+                                        a(href='#') #{param.description}
+                                    .cube-face.cube-face-bottom 
+                                    .cube-face.cube-face-top 
 
             #alert 
             
@@ -91,10 +91,6 @@ html(lang='en')
             
             // https://www.pixiv.net/artworks/92619250
             #background.background-image
-
-            // svg filter
-            include includes/water_curtain.svg
-
 
         script(src='js/dependencies/jquery-3.6.0.min.js')
         script(src='js/index.js', type='module')

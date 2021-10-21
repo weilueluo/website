@@ -4,13 +4,19 @@
 
 $phase-duration: 0.3s;
 
+$list-item-height: 3rem;
+$list-item-width: 15rem;
+
+$list-item-hover-height: 15rem;
+$list-item-hover-width: 10rem;
+
 .list-item.list-item-hover-in {
     cursor: pointer;
 
     @keyframes dimension-animation {
         to {
-            height: 15rem;
-            width: 10rem;
+            height: $list-item-hover-height;
+            width: $list-item-hover-width;
         }
     }
 
@@ -71,16 +77,16 @@ $phase-duration: 0.3s;
 .list-item.list-item-hover-out {
     @keyframes dimension-animation-reverse {
         0% {
-            height: 15rem;
-            width: 10rem;
+            height: $list-item-hover-height;
+            width: $list-item-hover-width;
         }
         50% {
-            height: 15rem;
-            width: 15rem;
+            height: $list-item-height;
+            width: $list-item-hover-width;
         }
-        to {
-            height: 3rem;
-            width: 15rem;
+        100% {
+            height: $list-item-height;
+            width: $list-item-width;
         }
     }
 
@@ -154,7 +160,8 @@ $phase-duration: 0.3s;
     opacity: 0;
     transition: 0.3s $phase-duration;
 }
+
 .list-item {
-    opacity: 0;
-    transition: 0.3s $phase-duration;
+    opacity: 1;
+    transition: 0.3s;
 }

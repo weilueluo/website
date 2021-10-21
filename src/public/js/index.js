@@ -1,4 +1,5 @@
 import { getMouseInfo } from "./components/mouse.js"
+import { getComputedStyles } from "./components/utils.js"
 
 $(() => {
 
@@ -19,8 +20,16 @@ $(() => {
         })
     });
     document.querySelectorAll(".list-item").forEach(item => {
-        makeMatchBackgroundImage(item);
+        makeMatchBackgroundImage(item, false);
         resizeObserver.observe(item);
+
+        item.addEventListener("transitionend", () => {
+            makeMatchBackgroundImage(item);
+        })
+
+        item.addEventListener("animationend", () => {
+            makeMatchBackgroundImage(item);
+        })
     })
 
     // position all list items on window resize
@@ -30,12 +39,19 @@ $(() => {
         })
     })
 
-    function makeMatchBackgroundImage(element) {
+    function makeMatchBackgroundImage(element, transition=true) {
         const elementRect = element.getBoundingClientRect();
+        // const styles = getComputedStyles(element);
+        // const paddingTop = parseFloat(styles.getPropertyValue("padding-top"));
+        // const paddingLeft = parseFloat(styles.getPropertyValue("padding-left"));
         element.querySelectorAll('.background-image').forEach(background => {
+            if (transition) {
+                background.style.transition = "left 0.5s, top 0.5s";
+            } else {
+                background.style.transition = "";
+            }
             background.style.left = `${-elementRect.x}px`;
             background.style.top = `${-elementRect.y}px`;
         });
     }
-
 })

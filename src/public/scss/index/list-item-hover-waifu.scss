@@ -3,10 +3,6 @@
 .list-item-hover-in.list-item-waifu {
     $curtain-dropped-time: 3.5s;
 
-    .waifu {
-        border: 2px solid black;
-    }
-
     .mona-svg {
         transform: rotateX(180deg);
 
@@ -46,9 +42,5 @@
                 bottom: -100%;
             }
         }
-    }
-
-    .background-image {
-       // filter: blur(5px);
     }
 }

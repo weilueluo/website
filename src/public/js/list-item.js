@@ -1,4 +1,4 @@
-import { addClass, addSiblingsClass, removeSiblingsClass, removeClass } from "./components/utils.js";
+import { addClass, addClassOnSiblings, removeClassOnSiblings, removeClass } from "./components/utils.js";
 
 
 (() => {
@@ -11,6 +11,7 @@ import { addClass, addSiblingsClass, removeSiblingsClass, removeClass } from "./
     var clicked = 0;
 
     document.querySelectorAll(".list-item").forEach(listItem => {
+        
 
         /* click */
 
@@ -41,13 +42,22 @@ import { addClass, addSiblingsClass, removeSiblingsClass, removeClass } from "./
         listItem.addEventListener("mouseenter", event => {
             addClass(event.target, hoverInClass);
             removeClass(event.target, hoverOutClass);
-            addSiblingsClass(event.target, hoverSiblingClass);
+            addClassOnSiblings(event.target, hoverSiblingClass, 'pointer-events-none');
         })
 
         listItem.addEventListener("mouseout", event => {
             removeClass(event.target, hoverInClass);
             addClass(event.target, hoverOutClass);
-            removeSiblingsClass(event.target, hoverSiblingClass);
+            removeClassOnSiblings(event.target, hoverSiblingClass, 'pointer-events-none');
+        })
+
+        // disable other list item effects when one is playing
+        listItem.addEventListener("animationstart", event => {
+            addClassOnSiblings(event.target, 'pointer-events-none');
+        })
+
+        listItem.addEventListener("animationend", event => {
+            removeClassOnSiblings(event.target, 'pointer-events-none');
         })
     })
 

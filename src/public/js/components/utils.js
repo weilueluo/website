@@ -22,14 +22,19 @@ export function removeClass(element, ...clazz) {
     element.classList.remove(...clazz);
 }
 
-export function addSiblingsClass(element, ...clazz) {
+export function addClassOnSiblings(element, ...clazz) {
     applyToAllElementSiblings(element, sibling => sibling.classList.add(...clazz));
 }
 
-export function removeSiblingsClass(element, ...clazz) {
+export function removeClassOnSiblings(element, ...clazz) {
     applyToAllElementSiblings(element, sibling => sibling.classList.remove(...clazz));
 }
 
-export function getComputedStyle(element, name) {
-    return window.getComputedStyle(element).getPropertyValue(name);
+export function getComputedStyles(element) {
+    return window.getComputedStyle(element);
 }
+
+export function getComputedStyle(element, name) {
+    return getComputedStyles(element).getPropertyValue(name);
+}
+
