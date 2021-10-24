@@ -50,6 +50,10 @@
         user-select: none;
     }
 
+    .background-image {
+        filter: none;
+    }
+
     .cube {
         @include dimension-fill;
         @include flex-center-items;

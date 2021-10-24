@@ -1,0 +1,44 @@
+@use "../utils" as *;
+@import "../base";
+@import "../vars";
+
+#all-wrapper, #content-wrapper {
+    @include dimension-viewport;
+}
+
+#background-image {
+    @include dimension-viewport;
+    @include absolute-center;
+
+    background: $background-image;
+    background-position: center;
+    background-size: cover;
+    z-index: -1;
+}
+
+.description {
+    @include dimension-fill;
+    @include flex-center-items;
+    flex-direction: column;
+}
+
+.section {
+    .title {
+        background-color: wheat;
+        padding: 1rem;
+        width: 30rem;
+    }
+}
+
+.section-item {
+    height: 10rem;
+    width: 10rem;
+}
+
+.pug {
+    background-image: $pug-image;
+}
+
+.scss {
+    background-image: $scss-image;
+}

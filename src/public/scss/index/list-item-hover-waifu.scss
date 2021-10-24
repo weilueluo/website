@@ -1,7 +1,17 @@
 @use "sass:math";
 
 .list-item-hover-in.list-item-waifu {
-    $curtain-dropped-time: 3.5s;
+    $draw-time: 1.5s;
+
+    @keyframes waifu-filter-animation {
+        to {
+            filter: blur(3px) grayscale(100%);
+        }
+    }
+
+    .background-image {
+        animation: waifu-filter-animation 1s $draw-time forwards;
+    }
 
     .mona-svg {
         transform: rotateX(180deg);
@@ -15,32 +25,7 @@
     .water-curtain {
         .mona {
             opacity: 1;
-            transition: opacity 0s $curtain-dropped-time;
-        }
-
-        .curtain {
-            opacity: 1;
-            animation: curtain-animation #{$curtain-dropped-time + 1.5s} 1s forwards;
-        }
-
-        @keyframes curtain-animation {
-            0% {
-                bottom: -100%;
-            }
-
-            @for $i from 1 through 5 {
-                #{percentage(math.div($i * 10 - random(5), 100))} {
-                    bottom: -#{percentage(math.div(100 - $i * 20, 100))};
-                    transform: rotateZ(#{(random(3)-2) * random(5) * 3}deg);
-                }
-            }
-
-            50% {
-                bottom: 0%;
-            }
-            100% {
-                bottom: -100%;
-            }
+            transition: opacity 1s $draw-time;
         }
     }
 }

@@ -1,6 +1,6 @@
 @use "../utils" as *;
+@import "../vars";
 
-$colored-mona-path: url(../assets/image/mona_color.png);
 
 .mona-svg {
     @include dimension-fill;
@@ -26,7 +26,7 @@ $mona-path-length: 76000px;  // TODO: use getTotalLength with js instead
 .water-curtain {
     @include dimension-fill;
     @include absolute-top-left;
-    mask: url(../assets/image/mona_color.png);
+    mask-image: url(../assets/image/mona_color.jpg);
     mask-size: 100%;
     mask-repeat: no-repeat;
     transform: rotateY(180deg) rotateZ(180deg);
@@ -48,7 +48,7 @@ $mona-path-length: 76000px;  // TODO: use getTotalLength with js instead
     @include dimension-fill;
     @include absolute-top-left;
     
-    background: $colored-mona-path;
+    background: $colored-mona-image;
     background-size: 100%;
     background-repeat: no-repeat;
     opacity: 0;

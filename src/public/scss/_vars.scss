@@ -1,0 +1,6 @@
+$image-folder: "../../assets/image";
+
+$background-image: url(#{$image-folder + "/background.jpg"});
+$pug-image:  url(#{$image-folder + "/pug.svg"});
+$scss-image:  url(#{$image-folder + "/scss.svg"});
+$colored-mona-image: url(#{$image-folder + "/mona_color.png"});

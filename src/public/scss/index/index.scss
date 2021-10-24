@@ -1,9 +1,8 @@
 @use "../utils" as *;
 @import "../base";
+@import "../vars";
 @import "title";
 @import "list-item";
-
-$background-image: url("../assets/image/background.jpg");
 
 * {
     transition: height 0.3s, width 0.3s;

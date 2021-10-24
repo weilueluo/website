@@ -61,8 +61,14 @@ import { addClass, addClassOnSiblings, removeClassOnSiblings, removeClass } from
         })
     })
 
-    // open cv when clicked
-    document.querySelector(".list-item-cv").addEventListener('click', event => {
+    // cv item
+    document.querySelector(".list-item-cv").addEventListener("click", event => {
         window.open('assets/cv.pdf', '_blank');
     })
+
+    // about item
+    document.querySelector(".list-item-about").addEventListener("click", event => {
+        window.open('about.html');
+    })
+
 })()
