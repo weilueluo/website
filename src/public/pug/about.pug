@@ -6,26 +6,29 @@ html(lang='en')
         title Hello About
 
         // css
-        link(rel="stylesheet", href="css/about/about.css")
+        link(rel="stylesheet", href="css/postcss-generated/about.css")
 
     body
-    #all-wrapper 
-        #content-wrapper
-            .description 
-                section.section.section-built
-                    .title
-                        This Website Is Built With ...
-                    .content
-                        .section-item.pug
-                        .section-item.scss
-                        .section-item.autoprefixer
-                section.section.section-host
-                    .title
-                        This Website is Hosted with ...
-                    .content
-                        .section-item.route53
-                        .section-item.cloudfront
-                        .section-item.s3
-            #background-image
+        #all-wrapper 
+            .warning this page is under construction
+            #content-wrapper
+                .description 
+                    section.section.section-built
+                        .title.section-item-container
+                            This Website Is Built With ...
+                        .content.section-item-container
+                            .section-item.pug
+                            .section-item.scss
+                            .section-item.autoprefixer
+                    section.section.section-host
+                        .title.section-item-container
+                            This Website is Hosted With ...
+                        .content.section-item-container
+                            .section-item.route53
+                            .section-item.cloudfront
+                            .section-item.s3
+                #background-image
+        
+        script(src="./js/about/about.js") 
 
                                 

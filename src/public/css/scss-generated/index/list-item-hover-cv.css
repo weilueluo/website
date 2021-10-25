@@ -11,51 +11,51 @@
   bottom: 0%;
 }
 .list-item-hover-in.list-item-cv .mini-cv .details .line:nth-of-type(1) {
-  transition: left 1.0129781005s 1.411223696s;
+  transition: left 1.4594759843s 1.4625971683s;
   left: 0%;
 }
 .list-item-hover-in.list-item-cv .mini-cv .details .line:nth-of-type(2) {
-  transition: left 0.5159056931s 0.7540872385s;
+  transition: left 0.896561143s 0.8843895835s;
   left: 0%;
 }
 .list-item-hover-in.list-item-cv .mini-cv .details .line:nth-of-type(3) {
-  transition: left 0.887424451s 1.013977844s;
+  transition: left 1.2591339227s 0.8800955389s;
   left: 0%;
 }
 .list-item-hover-in.list-item-cv .mini-cv .details .line:nth-of-type(4) {
-  transition: left 0.7185791234s 0.911379757s;
+  transition: left 0.5333074396s 1.4998100899s;
   left: 0%;
 }
 .list-item-hover-in.list-item-cv .mini-cv .details .line:nth-of-type(5) {
-  transition: left 1.130066627s 1.4345802457s;
+  transition: left 1.2324472554s 0.6990291673s;
   left: 0%;
 }
 .list-item-hover-in.list-item-cv .mini-cv .content .line:nth-of-type(1) {
-  transition: left 0.7508273981s 1.273953509s;
+  transition: left 1.2991169717s 1.2872043013s;
   left: 0%;
 }
 .list-item-hover-in.list-item-cv .mini-cv .content .line:nth-of-type(2) {
-  transition: left 0.8191901329s 0.6184640564s;
+  transition: left 1.2944738582s 0.7550394753s;
   left: 0%;
 }
 .list-item-hover-in.list-item-cv .mini-cv .content .line:nth-of-type(3) {
-  transition: left 1.4722700013s 0.9236608617s;
+  transition: left 1.2065106073s 0.8647296116s;
   left: 0%;
 }
 .list-item-hover-in.list-item-cv .mini-cv .content .line:nth-of-type(4) {
-  transition: left 0.7525384359s 1.3382838338s;
+  transition: left 1.1587670239s 1.3774474451s;
   left: 0%;
 }
 .list-item-hover-in.list-item-cv .mini-cv .content .line:nth-of-type(5) {
-  transition: left 1.4383149197s 0.6901891825s;
+  transition: left 0.7926023563s 1.4234006643s;
   left: 0%;
 }
 .list-item-hover-in.list-item-cv .mini-cv .content .line:nth-of-type(6) {
-  transition: left 1.2036259051s 0.647363261s;
+  transition: left 1.2903172274s 1.2737531263s;
   left: 0%;
 }
 .list-item-hover-in.list-item-cv .mini-cv .content .line:nth-of-type(7) {
-  transition: left 0.5341316563s 1.2343771724s;
+  transition: left 0.5989981457s 1.0921282873s;
   left: 0%;
 }
 
@@ -70,5 +70,3 @@
     opacity: 0;
   }
 }
-
-/*# sourceMappingURL=list-item-hover-cv.css.map */

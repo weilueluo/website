@@ -30,3 +30,20 @@ ul {
 a {
     text-decoration: none;
 }
+
+.pointer-events-none {
+    pointer-events: none;
+}
+
+.warning {
+    line-height: 2rem;
+    height: 2rem;
+    width: 100vw;
+
+    position: absolute;
+    text-align: center;
+    vertical-align: middle;
+
+    color: white;
+    background: #cc8739;
+}

@@ -39,6 +39,9 @@
     opacity: 1;
     perspective: 600px;
 
+    transition: box-shadow 0.5s 1s;
+    box-shadow: 0px 0px 3px 0px white;
+
     * {
         pointer-events: none;
     }

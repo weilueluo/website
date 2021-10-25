@@ -11,51 +11,51 @@
   bottom: 0%;
 }
 .list-item-hover-in.list-item-cv .mini-cv .details .line:nth-of-type(1) {
-  transition: left 0.6644469606s 0.5833341616s;
+  transition: left 0.799097976s 0.699394855s;
   left: 0%;
 }
 .list-item-hover-in.list-item-cv .mini-cv .details .line:nth-of-type(2) {
-  transition: left 0.6070692289s 1.4223970774s;
+  transition: left 1.1657779761s 0.8809746514s;
   left: 0%;
 }
 .list-item-hover-in.list-item-cv .mini-cv .details .line:nth-of-type(3) {
-  transition: left 0.5147170968s 1.1562122875s;
+  transition: left 0.8050664443s 1.2280701399s;
   left: 0%;
 }
 .list-item-hover-in.list-item-cv .mini-cv .details .line:nth-of-type(4) {
-  transition: left 1.4575253084s 0.9004818823s;
+  transition: left 1.4360537594s 0.8142023816s;
   left: 0%;
 }
 .list-item-hover-in.list-item-cv .mini-cv .details .line:nth-of-type(5) {
-  transition: left 1.3879601688s 1.3169174692s;
+  transition: left 1.0999283781s 1.2655801369s;
   left: 0%;
 }
 .list-item-hover-in.list-item-cv .mini-cv .content .line:nth-of-type(1) {
-  transition: left 1.3842531326s 1.3939335492s;
+  transition: left 0.8123052401s 1.1448238825s;
   left: 0%;
 }
 .list-item-hover-in.list-item-cv .mini-cv .content .line:nth-of-type(2) {
-  transition: left 1.2671424345s 1.1774534289s;
+  transition: left 1.219122824s 1.4668464057s;
   left: 0%;
 }
 .list-item-hover-in.list-item-cv .mini-cv .content .line:nth-of-type(3) {
-  transition: left 0.6015138282s 0.8417330768s;
+  transition: left 0.5160421162s 1.357623321s;
   left: 0%;
 }
 .list-item-hover-in.list-item-cv .mini-cv .content .line:nth-of-type(4) {
-  transition: left 0.6936485627s 1.0084928782s;
+  transition: left 0.7889514769s 1.0236436242s;
   left: 0%;
 }
 .list-item-hover-in.list-item-cv .mini-cv .content .line:nth-of-type(5) {
-  transition: left 1.1193074753s 1.1227419722s;
+  transition: left 1.2696172099s 0.6166970464s;
   left: 0%;
 }
 .list-item-hover-in.list-item-cv .mini-cv .content .line:nth-of-type(6) {
-  transition: left 0.6276867978s 1.139911256s;
+  transition: left 1.2364133897s 0.8223912126s;
   left: 0%;
 }
 .list-item-hover-in.list-item-cv .mini-cv .content .line:nth-of-type(7) {
-  transition: left 0.7728960041s 1.0205272842s;
+  transition: left 0.6096397723s 0.8484725878s;
   left: 0%;
 }
 
@@ -93,6 +93,8 @@
 
 .list-item.list-item-hover-in {
   cursor: pointer;
+  transition: box-shadow 0s 0s;
+  box-shadow: 0px 0px 0px 0px white;
   animation: dimension-animation 0.3s 0.3s forwards;
 }
 @keyframes dimension-animation {
@@ -225,5 +227,3 @@
   opacity: 1;
   transition: 0.3s;
 }
-
-/*# sourceMappingURL=list-item-hover.css.map */

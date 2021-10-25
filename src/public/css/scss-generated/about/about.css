@@ -1,0 +1,135 @@
+* {
+  border: 0;
+  margin: 0;
+  padding: 0;
+  font-family: "Fira Code", monospace;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  overflow: hidden;
+  height: 100vh;
+  width: 100vw;
+}
+
+body {
+  background-color: gray;
+}
+
+.wrapper {
+  height: 100%;
+  width: 100%;
+  position: relative;
+}
+
+ul {
+  list-style-type: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+.pointer-events-none {
+  pointer-events: none;
+}
+
+.warning {
+  line-height: 2rem;
+  height: 2rem;
+  width: 100vw;
+  position: absolute;
+  text-align: center;
+  vertical-align: middle;
+  color: white;
+  background: #cc8739;
+}
+
+#all-wrapper, #content-wrapper {
+  height: 100vh;
+  width: 100vw;
+}
+
+#background-image {
+  height: 100vh;
+  width: 100vw;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: url(../../assets/image/background.jpg);
+  background-position: center;
+  background-size: cover;
+  z-index: -1;
+}
+
+.description {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  row-gap: 3rem;
+}
+
+.section {
+  position: relative;
+  height: 3rem;
+}
+.section .title {
+  background-color: wheat;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 2rem;
+  padding: 1rem;
+  width: 20rem;
+  z-index: 2;
+}
+.section .content {
+  z-index: 1;
+}
+.section .section-item-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+}
+
+.section-item {
+  height: 4rem;
+  width: 4rem;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border: 1px solid white;
+}
+.section-item.pug {
+  background-image: url(../../assets/image/pug.svg);
+  background-size: 90%;
+}
+.section-item.scss {
+  background-image: url(../../assets/image/scss.svg);
+  background-size: 90%;
+}
+.section-item.autoprefixer {
+  background-image: url(../../assets/image/autoprefixer.svg);
+  background-size: 90%;
+}
+.section-item.cloudfront {
+  background-image: url(../../assets/image/cloudfront.svg);
+}
+.section-item.s3 {
+  background-image: url(../../assets/image/s3.svg);
+}
+.section-item.route53 {
+  background-image: url(../../assets/image/route53.svg);
+}

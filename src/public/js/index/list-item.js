@@ -1,4 +1,4 @@
-import { addClass, addClassOnSiblings, removeClassOnSiblings, removeClass } from "./components/utils.js";
+import { addClass, addClassOnSiblings, removeClassOnSiblings, removeClass } from "../components/utils.js";
 
 
 (() => {
@@ -7,8 +7,6 @@ import { addClass, addClassOnSiblings, removeClassOnSiblings, removeClass } from
     const hoverInClass = "list-item-hover-in";
     const hoverOutClass = "list-item-hover-out";
     const mousedownClass = "list-item-mouse-down";
-
-    var clicked = 0;
 
     document.querySelectorAll(".list-item").forEach(listItem => {
         
@@ -23,13 +21,6 @@ import { addClass, addClassOnSiblings, removeClassOnSiblings, removeClass } from
                 if (!documentEvent.composedPath().includes(event.target)) {
                     removeClass(event.target, mousedownClass);
                 }
-                clicked++;
-                $('#clicked')
-                    .css('opacity', 1)
-                    .html(`Nothing happened, because it is not ready yet. counter=${clicked}`);
-                setTimeout(() => {
-
-                })
             }, { once: true })
         })
 
@@ -40,15 +31,38 @@ import { addClass, addClassOnSiblings, removeClassOnSiblings, removeClass } from
         /* hover */
 
         listItem.addEventListener("mouseenter", event => {
-            addClass(event.target, hoverInClass);
-            removeClass(event.target, hoverOutClass);
-            addClassOnSiblings(event.target, hoverSiblingClass, 'pointer-events-none');
-        })
 
+            removeClass(event.target, hoverOutClass);
+            addClass(event.target, hoverInClass);
+            addClassOnSiblings(event.target, hoverSiblingClass, 'pointer-events-none');
+            
+            // disable sibiling hover for sometime, 
+            // to avoid uncomfortable flashing when mouse move quickly across different list items
+            addClassOnSiblings(event.target, 'pointer-events-none');
+            window.setTimeout(() => {
+                addClassOnSiblings(event.target, 'pointer-events-none');
+            }, 500);
+
+            event.target.enterTime = Date.now();
+        })
+        
+        const minIntervalInMs = 500;
         listItem.addEventListener("mouseout", event => {
-            removeClass(event.target, hoverInClass);
-            addClass(event.target, hoverOutClass);
-            removeClassOnSiblings(event.target, hoverSiblingClass, 'pointer-events-none');
+            
+            let interval = 0;
+            if (event.target.enterTime !== undefined) {
+                interval = minIntervalInMs - (Date.now() - event.target.enterTime);
+            }
+            
+            // remove later, to avoid uncomfortable flashing effect
+            // when mouse is re-enter within a short amount of time
+            window.setTimeout(() => {
+                removeClass(event.target, hoverInClass);
+                removeClassOnSiblings(event.target, hoverSiblingClass, 'pointer-events-none');
+                addClass(event.target, hoverOutClass);
+                delete event.target.enterTime;
+            }, interval);
+            
         })
 
         // disable other list item effects when one is playing

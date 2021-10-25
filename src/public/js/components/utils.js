@@ -1,4 +1,4 @@
-function applyToAllSiblings(node, callback) {
+export function applyToAllSiblings(node, callback) {
     node.parentNode.childNodes.forEach(child => {
         if (child != node) {
             callback(child);
@@ -6,7 +6,7 @@ function applyToAllSiblings(node, callback) {
     });
 }
 
-function applyToAllElementSiblings(node, callback) {
+export function applyToAllElementSiblings(node, callback) {
     applyToAllSiblings(node, sibling => {
         if (sibling.nodeType == Node.ELEMENT_NODE) {
             callback(sibling);

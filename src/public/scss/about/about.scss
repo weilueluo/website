@@ -20,25 +20,70 @@
     @include dimension-fill;
     @include flex-center-items;
     flex-direction: column;
+    row-gap: 3rem;
 }
 
 .section {
+    position: relative;
+    height: 3rem;
+
     .title {
-        background-color: wheat;
+        background-color: $about-theme-color;
+        text-align: center;
+        vertical-align: middle;
+        line-height: 2rem;
         padding: 1rem;
-        width: 30rem;
+        width: 20rem;
+        z-index: 2;
+    }
+
+    .content {
+        z-index: 1;
+    }
+
+    .section-item-container {
+        @include absolute-center;
     }
 }
 
+.content {
+    @include flex-center-items;
+    flex-direction: row;
+}
+
 .section-item {
-    height: 10rem;
-    width: 10rem;
+    height: 4rem;
+    width: 4rem;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border: 1px solid white;
+
+    &.pug {
+        background-image: $pug-image;
+        background-size: 90%;
+    }
+    
+    &.scss {
+        background-image: $scss-image;
+        background-size: 90%;
+    }
+
+    &.autoprefixer {
+        background-image: $autoprefixer-image;
+        background-size: 90%;
+    }
+    
+    &.cloudfront {
+        background-image: $cloudfront-image;
+    }
+    
+    &.s3 {
+        background-image: $s3-image;
+    }
+    
+    &.route53 {
+        background-image: $route53-image;
+    }
 }
 
-.pug {
-    background-image: $pug-image;
-}
-
-.scss {
-    background-image: $scss-image;
-}

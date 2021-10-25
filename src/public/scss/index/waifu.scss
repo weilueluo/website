@@ -26,7 +26,7 @@ $mona-path-length: 76000px;  // TODO: use getTotalLength with js instead
 .water-curtain {
     @include dimension-fill;
     @include absolute-top-left;
-    mask-image: url(../assets/image/mona_color.jpg);
+    mask-image: $colored-mona-image;
     mask-size: 100%;
     mask-repeat: no-repeat;
     transform: rotateY(180deg) rotateZ(180deg);

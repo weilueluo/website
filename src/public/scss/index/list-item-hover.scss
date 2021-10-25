@@ -12,6 +12,8 @@ $list-item-hover-width: 10rem;
 
 .list-item.list-item-hover-in {
     cursor: pointer;
+    transition: box-shadow 0s 0s;
+    box-shadow: 0px 0px 0px 0px white;
 
     @keyframes dimension-animation {
         to {

@@ -2,7 +2,7 @@
 
 #### Postcss
 ```
-postcss .\src\public\css\*.css --watch --use autoprefixer -d .\src\public\css\
+postcss ./src/public/css/scss-generated --watch --use autoprefixer -d ./src/public/css/postcss-generated
 ```
 
 #### Pug
@@ -12,5 +12,5 @@ pug -w src/public/pug -o src/public
 
 #### Scss
 ```
-sass --watch .\src\public\scss\index\index.scss:./src/public/css/index.css .\src\public\scss\about\about.scss:./src/public/css/about.css
+sass --watch --no-source-map ./src/public/scss:./src/public/css/scss-generated
 ```

@@ -24,7 +24,7 @@
   position: absolute;
   top: 0;
   left: 0;
-  mask-image: url(../assets/image/mona_color.jpg);
+  mask-image: url(../../assets/image/mona_color.png);
   mask-size: 100%;
   mask-repeat: no-repeat;
   transform: rotateY(180deg) rotateZ(180deg);
@@ -53,5 +53,3 @@
   background-repeat: no-repeat;
   opacity: 0;
 }
-
-/*# sourceMappingURL=waifu.css.map */

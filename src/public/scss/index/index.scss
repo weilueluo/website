@@ -32,6 +32,7 @@ a {
     @include dimension-fit-content;
     @include absolute-center;
     @include flex-center-items;
+    min-width: 20rem;
     flex-direction: column;
     row-gap: 5vh;
     overflow: hidden;
