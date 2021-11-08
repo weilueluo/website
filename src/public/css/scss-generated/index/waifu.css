@@ -4,8 +4,7 @@
 }
 
 .mona-path {
-  stroke-dasharray: 76000px;
-  stroke-dashoffset: 76000px;
+  opacity: 0;
   fill: none;
   stroke: black;
   stroke-width: 4rem;
@@ -42,14 +41,35 @@
   opacity: 0;
 }
 
-.mona {
+.gray-mona-container, .mona-container {
   height: 100%;
   width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.mona, .gray-mona {
   position: absolute;
   top: 0;
   left: 0;
   background: url(../../assets/image/mona_color.png);
   background-size: 100%;
   background-repeat: no-repeat;
+}
+
+.mona, .gray-mona {
   opacity: 0;
+  height: 0%;
+  width: 100%;
+  border-bottom: 3px solid gray;
+}
+
+.mona {
+  z-index: 2;
+}
+
+.gray-mona {
+  filter: grayscale(100%);
+  z-index: 1;
 }

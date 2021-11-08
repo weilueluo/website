@@ -1,7 +1,6 @@
 @use "sass:math";
 
 .list-item-hover-in.list-item-waifu {
-    $draw-time: 1.5s;
 
     @keyframes waifu-filter-animation {
         to {
@@ -10,22 +9,32 @@
     }
 
     .background-image {
-        animation: waifu-filter-animation 1s $draw-time forwards;
+        animation: waifu-filter-animation 3s 0.5s forwards;
     }
 
     .mona-svg {
         transform: rotateX(180deg);
 
-        .mona-path {
-            stroke-dashoffset: 0px;
-            transition: stroke-dashoffset 2s 0.5s ease-in-out;
-        }
+        // chrome stroke dashoffset performance issue
+        // https://bugs.chromium.org/p/chromium/issues/detail?id=167569
+        // .mona-path {
+        //     stroke-dashoffset: 0px;
+        //     opacity: 1;
+        //     transition: stroke-dashoffset 2s 2.5s linear, opacity 0s 2.5s;
+        // }
     }
 
     .water-curtain {
         .mona {
             opacity: 1;
-            transition: opacity 1s $draw-time;
+            height: 100%;
+            transition: height 1s 0.8s;
+        }
+
+        .gray-mona {
+            opacity: 1;
+            height: 100%;
+            transition: height 1s 0.5s;
         }
     }
 }

@@ -1,6 +1,5 @@
 @forward "list-item-hover-cv";
 @forward "list-item-hover-waifu";
-// @import "list-item-hover-about";
 
 $phase-duration: 0.3s;
 
@@ -149,13 +148,7 @@ $list-item-hover-width: 10rem;
 }
 
 .list-item.list-item-mouse-down {
-    .background-cube {
-        transform: translateY(-10px);
-        transition: transform 0.05s;
-        .background-image {
-            filter: none;
-        }
-    }
+    transform: translateY(5px);
 }
 
 .list-item.list-item-hover-in-siblings {

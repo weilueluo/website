@@ -4,16 +4,18 @@
   }
 }
 .list-item-hover-in.list-item-waifu .background-image {
-  animation: waifu-filter-animation 1s 1.5s forwards;
+  animation: waifu-filter-animation 3s 0.5s forwards;
 }
 .list-item-hover-in.list-item-waifu .mona-svg {
   transform: rotateX(180deg);
 }
-.list-item-hover-in.list-item-waifu .mona-svg .mona-path {
-  stroke-dashoffset: 0px;
-  transition: stroke-dashoffset 2s 0.5s ease-in-out;
-}
 .list-item-hover-in.list-item-waifu .water-curtain .mona {
   opacity: 1;
-  transition: opacity 1s 1.5s;
+  height: 100%;
+  transition: height 1s 0.8s;
+}
+.list-item-hover-in.list-item-waifu .water-curtain .gray-mona {
+  opacity: 1;
+  height: 100%;
+  transition: height 1s 0.5s;
 }

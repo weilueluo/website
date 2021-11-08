@@ -6,11 +6,12 @@
     @include dimension-fill;
 }
 
-$mona-path-length: 76000px;  // TODO: use getTotalLength with js instead
+$mona-path-length: 1000px;  // TODO: use getTotalLength with js instead
 
 .mona-path {
-    stroke-dasharray: $mona-path-length;
-    stroke-dashoffset: $mona-path-length;
+    // stroke-dasharray: $mona-path-length;
+    // stroke-dashoffset: $mona-path-length;
+    opacity: 0;
     fill: none;
     stroke: black;
     stroke-width: 4rem;
@@ -44,12 +45,32 @@ $mona-path-length: 76000px;  // TODO: use getTotalLength with js instead
     opacity: 0;
 }
 
-.mona {
+.gray-mona-container, .mona-container {
     @include dimension-fill;
     @include absolute-top-left;
-    
+}
+
+.mona, .gray-mona {
+    @include absolute-top-left;
+
     background: $colored-mona-image;
     background-size: 100%;
     background-repeat: no-repeat;
-    opacity: 0;
 }
+
+.mona, .gray-mona {
+    opacity: 0;
+    height: 0%;
+    width: 100%;
+    border-bottom: 3px solid gray;
+}
+
+.mona {
+    z-index: 2;
+}
+
+.gray-mona {
+    filter: grayscale(100%);
+    z-index: 1;
+}
+

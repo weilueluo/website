@@ -11,51 +11,51 @@
   bottom: 0%;
 }
 .list-item-hover-in.list-item-cv .mini-cv .details .line:nth-of-type(1) {
-  transition: left 0.799097976s 0.699394855s;
+  transition: left 1.141525148s 1.1908500809s;
   left: 0%;
 }
 .list-item-hover-in.list-item-cv .mini-cv .details .line:nth-of-type(2) {
-  transition: left 1.1657779761s 0.8809746514s;
+  transition: left 0.9148224897s 1.0862601759s;
   left: 0%;
 }
 .list-item-hover-in.list-item-cv .mini-cv .details .line:nth-of-type(3) {
-  transition: left 0.8050664443s 1.2280701399s;
+  transition: left 1.3411326771s 0.7683357114s;
   left: 0%;
 }
 .list-item-hover-in.list-item-cv .mini-cv .details .line:nth-of-type(4) {
-  transition: left 1.4360537594s 0.8142023816s;
+  transition: left 1.2999529107s 0.7167454415s;
   left: 0%;
 }
 .list-item-hover-in.list-item-cv .mini-cv .details .line:nth-of-type(5) {
-  transition: left 1.0999283781s 1.2655801369s;
+  transition: left 1.0152606907s 1.3625389049s;
   left: 0%;
 }
 .list-item-hover-in.list-item-cv .mini-cv .content .line:nth-of-type(1) {
-  transition: left 0.8123052401s 1.1448238825s;
+  transition: left 0.6984625066s 0.6116773126s;
   left: 0%;
 }
 .list-item-hover-in.list-item-cv .mini-cv .content .line:nth-of-type(2) {
-  transition: left 1.219122824s 1.4668464057s;
+  transition: left 0.8677096497s 1.2314544031s;
   left: 0%;
 }
 .list-item-hover-in.list-item-cv .mini-cv .content .line:nth-of-type(3) {
-  transition: left 0.5160421162s 1.357623321s;
+  transition: left 1.0514589251s 0.9595448236s;
   left: 0%;
 }
 .list-item-hover-in.list-item-cv .mini-cv .content .line:nth-of-type(4) {
-  transition: left 0.7889514769s 1.0236436242s;
+  transition: left 1.3243446937s 0.9118315393s;
   left: 0%;
 }
 .list-item-hover-in.list-item-cv .mini-cv .content .line:nth-of-type(5) {
-  transition: left 1.2696172099s 0.6166970464s;
+  transition: left 1.0942410707s 1.0257069342s;
   left: 0%;
 }
 .list-item-hover-in.list-item-cv .mini-cv .content .line:nth-of-type(6) {
-  transition: left 1.2364133897s 0.8223912126s;
+  transition: left 1.2161463581s 0.6677257622s;
   left: 0%;
 }
 .list-item-hover-in.list-item-cv .mini-cv .content .line:nth-of-type(7) {
-  transition: left 0.6096397723s 0.8484725878s;
+  transition: left 1.4413421874s 0.6084461229s;
   left: 0%;
 }
 
@@ -77,18 +77,20 @@
   }
 }
 .list-item-hover-in.list-item-waifu .background-image {
-  animation: waifu-filter-animation 1s 1.5s forwards;
+  animation: waifu-filter-animation 3s 0.5s forwards;
 }
 .list-item-hover-in.list-item-waifu .mona-svg {
   transform: rotateX(180deg);
 }
-.list-item-hover-in.list-item-waifu .mona-svg .mona-path {
-  stroke-dashoffset: 0px;
-  transition: stroke-dashoffset 2s 0.5s ease-in-out;
-}
 .list-item-hover-in.list-item-waifu .water-curtain .mona {
   opacity: 1;
-  transition: opacity 1s 1.5s;
+  height: 100%;
+  transition: height 1s 0.8s;
+}
+.list-item-hover-in.list-item-waifu .water-curtain .gray-mona {
+  opacity: 1;
+  height: 100%;
+  transition: height 1s 0.5s;
 }
 
 .list-item.list-item-hover-in {
@@ -210,12 +212,8 @@
   animation: image-container-animation-reverse 0.9s forwards, rotate-animation-reverse 0.9s forwards;
 }
 
-.list-item.list-item-mouse-down .background-cube {
-  transform: translateY(-10px);
-  transition: transform 0.05s;
-}
-.list-item.list-item-mouse-down .background-cube .background-image {
-  filter: none;
+.list-item.list-item-mouse-down {
+  transform: translateY(5px);
 }
 
 .list-item.list-item-hover-in-siblings {
