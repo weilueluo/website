@@ -1,3 +1,6 @@
+@use "../utils" as *;
+@import "../vars";
+
 * {
     border: 0;
     margin: 0;
@@ -18,8 +21,7 @@ body {
 }
 
 .wrapper {
-    height: 100%;
-    width: 100%;
+    @include dimension-fill;
     position: relative;
 }
 
@@ -35,15 +37,19 @@ a {
     pointer-events: none;
 }
 
-.warning {
-    line-height: 2rem;
-    height: 2rem;
-    width: 100vw;
+#all-wrapper, #content-wrapper {
+    @include dimension-viewport;
+}
 
-    position: absolute;
-    text-align: center;
-    vertical-align: middle;
+#content-wrapper {
+    @include absolute-center;
+    @include flex-center-items;
+}
 
-    color: white;
-    background: #cc8739;
+.background-image {
+    @include dimension-viewport;
+    @include absolute-top-left;
+    
+    background-image: $background-image;
+    background-size: cover;
 }

@@ -75,14 +75,19 @@ import { addClass, addClassOnSiblings, removeClassOnSiblings, removeClass } from
         })
     })
 
-    // cv item
+    // cv click
     document.querySelector(".list-item-cv").addEventListener("click", event => {
         window.open('assets/cv.pdf', '_blank');
     })
 
-    // about item
+    // about click
     document.querySelector(".list-item-about").addEventListener("click", event => {
         window.open('about.html');
+    })
+
+    // waifu click
+    document.querySelector(".list-item-waifu").addEventListener("click", event => {
+        window.open('waifu.html');
     })
 
 })()

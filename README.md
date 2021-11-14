@@ -2,7 +2,7 @@
 
 #### Postcss
 ```
-postcss ./src/public/css/scss-generated --watch --use autoprefixer -d ./src/public/css/postcss-generated
+postcss ./src/public/css/scss-generated --watch --use autoprefixer --base ./src/public/css/scss-generated --dir ./src/public/css/postcss-generated
 ```
 
 #### Pug

@@ -25,15 +25,17 @@
     }
 
     .water-curtain {
-        .mona {
-            opacity: 1;
+
+        .mona, .gray-mona {
             height: 100%;
+            border-bottom: 3px solid gray;
+        }
+
+        .mona {
             transition: height 1s 0.8s;
         }
 
         .gray-mona {
-            opacity: 1;
-            height: 100%;
             transition: height 1s 0.5s;
         }
     }

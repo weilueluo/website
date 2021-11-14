@@ -1,5 +1,4 @@
 @use "../utils" as *;
-@import "../base";
 @import "../vars";
 @import "title";
 @import "list-item";
@@ -18,36 +17,18 @@ a {
     white-space: nowrap;
 }
 
-#clicked {
-    color: whitesmoke;
-}
-
-// Wrappers & Background
-
-#all-wrapper {
-    @include dimension-viewport;
-}
-
-#content-wrapper {
-    @include dimension-fit-content;
-    @include absolute-center;
-    @include flex-center-items;
-    min-width: 20rem;
-    flex-direction: column;
-    row-gap: 5vh;
-    overflow: hidden;
-}
-
 .background-image {
-    @include dimension-viewport;
-    @include absolute-top-left;
-
-    background-image: $background-image;
-    background-size: cover;
     filter: grayscale(100%) blur(3px);
     z-index: -1;
 }
 
 #background {
     z-index: -99;
+}
+
+#content-wrapper {
+    min-width: 20rem;
+    flex-direction: column;
+    row-gap: 5vh;
+    overflow: hidden;
 }

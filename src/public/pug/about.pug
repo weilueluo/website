@@ -1,34 +1,28 @@
-doctype html
-html(lang='en')
-    head
-        meta(charset='utf-8')
-        meta(name='viewport' content='width=device-width, initial-scale=1.0')
-        title Hello About
+extends templates/construction
 
-        // css
-        link(rel="stylesheet", href="css/postcss-generated/about.css")
+append stylesheets 
+    link(rel="stylesheet", href="css/postcss-generated/about/about.css")
 
-    body
-        #all-wrapper 
-            .warning this page is under construction
-            #content-wrapper
-                .description 
-                    section.section.section-built
-                        .title.section-item-container
-                            This Website Is Built With ...
-                        .content.section-item-container
-                            .section-item.pug
-                            .section-item.scss
-                            .section-item.autoprefixer
-                    section.section.section-host
-                        .title.section-item-container
-                            This Website is Hosted With ...
-                        .content.section-item-container
-                            .section-item.route53
-                            .section-item.cloudfront
-                            .section-item.s3
-                #background-image
+append scripts
+    script(src="./js/about/about.js") 
+
+append contents
+    .description 
+        section.section.section-built
+            .title.section-item-container
+                This Website Is Built With ...
+            .content.section-item-container
+                .section-item.pug
+                .section-item.scss
+                .section-item.autoprefixer
+        section.section.section-host
+            .title.section-item-container
+                This Website is Hosted With ...
+            .content.section-item-container
+                .section-item.route53
+                .section-item.cloudfront
+                .section-item.s3
+    #background-image
         
-        script(src="./js/about/about.js") 
 
                                 

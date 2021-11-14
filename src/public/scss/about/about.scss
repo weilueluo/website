@@ -1,10 +1,5 @@
 @use "../utils" as *;
-@import "../base";
 @import "../vars";
-
-#all-wrapper, #content-wrapper {
-    @include dimension-viewport;
-}
 
 #background-image {
     @include dimension-viewport;

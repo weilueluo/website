@@ -1,7 +1,6 @@
 @use "../utils" as *;
 @import "../vars";
 
-
 .mona-svg {
     @include dimension-fill;
 }
@@ -59,10 +58,10 @@ $mona-path-length: 1000px;  // TODO: use getTotalLength with js instead
 }
 
 .mona, .gray-mona {
-    opacity: 0;
     height: 0%;
     width: 100%;
-    border-bottom: 3px solid gray;
+    border-bottom: 0px solid gray;
+    transition: height 2s;
 }
 
 .mona {

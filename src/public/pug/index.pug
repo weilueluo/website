@@ -1,97 +1,75 @@
-doctype html
-html(lang='en')
-    head
-        meta(charset='utf-8')
-        meta(name='viewport' content='width=device-width, initial-scale=1.0')
-        title Hello Weilue
+extends templates/base
 
-        // stylesheet
-        link(rel='stylesheet' href='css/postcss-generated/index.css')
+append stylesheets
+    link(rel="stylesheet", href="css/postcss-generated/index/index.css")
 
-        // font
-        link(rel='preconnect' href='https://fonts.googleapis.com')
-        link(rel='preconnect' href='https://fonts.gstatic.com' crossorigin)
-        link(rel='stylesheet' href='https://fonts.googleapis.com/css2?family=Fira+Code&display=swap' crossorigin)
+append scripts
+    script(src='js/index/index.js', type='module')
+    script(src='js/index/list-item.js', type='module')
 
-        // favicon
-        link(rel='apple-touch-icon' sizes='180x180' href='assets/icon/apple-touch-icon.png')
-        link(rel='icon' type='image/png' sizes='32x32' href='assets/icon/favicon-32x32.png')
-        link(rel='icon' type='image/png' sizes='16x16' href='assets/icon/favicon-16x16.png')
-        link(rel='manifest' href='site.webmanifest')
-    body
-        #all-wrapper
-            #content-wrapper 
-                #title-wrapper
-                    span#title Welcome
-                //- params
-                ul#list 
-                    - 
-                        const params = {
-                            cv: { 
-                                mixin: 'cv',
-                                name: 'CV', 
-                                description: 'View My Career.'
-                            },
-                            waifu: {
-                                mixin: 'waifu',
-                                name: 'WAIFUS', 
-                                description: 'View My Hobbies.'
-                            },
-                            about: {
-                                mixin: 'about',
-                                name: 'ABOUT', 
-                                description: 'View This Website.'
-                            }
-                        }
-                    //- functions
-                    mixin cv
-                        each _ in Array(2)
-                            .background-image-container
-                                .background-image 
-                                .mini-cv
-                                    .photo
-                                        .human 
-                                            .head 
-                                            .body 
-                                    .details 
-                                        each _ in Array(5)
-                                            .line 
-                                    .content 
-                                        each _ in Array(7)
-                                            .line
-                    mixin waifu
-                        .background-image-container 
-                            .background-image 
-                            .waifu
-                                .water-curtain 
-                                    .mona-container
-                                        .mona
-                                    .gray-mona-container
-                                        .gray-mona
+append contents
+    #title-wrapper
+        span#title Welcome
+    //- params
+    ul#list 
+        - 
+            const params = {
+                cv: { 
+                    mixin: 'cv',
+                    name: 'CV', 
+                    description: 'View My Career.'
+                },
+                waifu: {
+                    mixin: 'waifu',
+                    name: 'WAIFUS', 
+                    description: 'View My Hobbies.'
+                },
+                about: {
+                    mixin: 'about',
+                    name: 'ABOUT', 
+                    description: 'View This Website.'
+                }
+            }
+        //- functions
+        mixin cv
+            each _ in Array(2)
+                .background-image-container
+                    .background-image 
+                    .mini-cv
+                        .photo
+                            .human 
+                                .head 
+                                .body 
+                        .details 
+                            each _ in Array(5)
+                                .line 
+                        .content 
+                            each _ in Array(7)
+                                .line
                                 
-                    mixin about
-                        .background-image-container 
-                            .background-image 
+        mixin waifu
+            .background-image-container 
+                .background-image 
+                .waifu
+                    .water-curtain 
+                        .mona-container
+                            .mona
+                        .gray-mona-container
+                            .gray-mona
+                    
+        mixin about
+            .background-image-container 
+                .background-image 
 
-                    //- render html
-                    each param, key in params
-                        li.list-item(class="list-item-" + key)
-                                .cube
-                                    .background-cube
-                                    +#{param.mixin}()
-                                    .cube-face.cube-face-front 
-                                        a(href='#') #{param.name}
-                                    .cube-face.cube-face-back 
-                                        a(href='#') #{param.description}
-                                    .cube-face.cube-face-bottom 
-                                    .cube-face.cube-face-top 
-
-            #clicked 
-            
-            // https://www.pixiv.net/artworks/92619250
-            #background.background-image
-
-        script(src='js/dependencies/jquery-3.6.0.min.js')
-        script(src='js/index/index.js', type='module')
-        script(src='js/index/list-item.js', type='module')
-
+        //- render html
+        each param, key in params
+            li.list-item(class="list-item-" + key)
+                    .cube
+                        .background-cube
+                        +#{param.mixin}()
+                        .cube-face.cube-face-front 
+                            a(href='#') #{param.name}
+                        .cube-face.cube-face-back 
+                            a(href='#') #{param.description}
+                        .cube-face.cube-face-bottom 
+                        .cube-face.cube-face-top 

@@ -23,7 +23,7 @@
   position: absolute;
   top: 0;
   left: 0;
-  mask-image: url(../../assets/image/mona_color.png);
+  mask-image: url(../../../assets/image/mona_color.png);
   mask-size: 100%;
   mask-repeat: no-repeat;
   transform: rotateY(180deg) rotateZ(180deg);
@@ -53,16 +53,16 @@
   position: absolute;
   top: 0;
   left: 0;
-  background: url(../../assets/image/mona_color.png);
+  background: url(../../../assets/image/mona_color.png);
   background-size: 100%;
   background-repeat: no-repeat;
 }
 
 .mona, .gray-mona {
-  opacity: 0;
   height: 0%;
   width: 100%;
-  border-bottom: 3px solid gray;
+  border-bottom: 0px solid gray;
+  transition: height 2s;
 }
 
 .mona {
