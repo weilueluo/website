@@ -1,15 +1,6 @@
 @use "../utils" as *;
 @import "../vars";
 
-#background-image {
-    @include dimension-viewport;
-    @include absolute-center;
-
-    background: $background-image;
-    background-position: center;
-    background-size: cover;
-    z-index: -1;
-}
 
 .description {
     @include dimension-fill;
@@ -20,33 +11,58 @@
 
 .section {
     position: relative;
-    height: 3rem;
-
-    .title {
-        background-color: $about-theme-color;
-        text-align: center;
-        vertical-align: middle;
-        line-height: 2rem;
-        padding: 1rem;
-        width: 20rem;
-        z-index: 2;
-    }
-
-    .content {
-        z-index: 1;
-    }
-
-    .section-item-container {
-        @include absolute-center;
-    }
+    height: 4rem;
+    width: 20vw;
 }
 
 .content {
+    position: absolute;
+    top: 0;
+    left: 0;
+
     @include flex-center-items;
     flex-direction: row;
+    column-gap: 0vw;
+    z-index: -1;
 }
 
-.section-item {
+.title {
+    @include dimension-fill;
+
+    .title-container {
+        @include dimension-fill;
+        background-color: $about-theme-color;
+        
+        @include flex-center-items;
+        overflow: hidden;
+        white-space: nowrap;
+
+        transition: width 0.5s;
+    }
+}
+
+.section {
+    .title-container {
+        transition: width 0.5s;
+    }
+
+    .content {
+        transition: left 0.5s, column-gap 0.5s;
+    }
+}
+
+.section:hover {
+    .title-container {
+        width: 8vw;
+    }
+    .content {
+        left: 50%;
+        column-gap: 2vw;
+    }
+}
+
+
+.section-item-icon {
     height: 4rem;
     width: 4rem;
     background-size: cover;
@@ -81,4 +97,3 @@
         background-image: $route53-image;
     }
 }
-
