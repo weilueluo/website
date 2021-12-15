@@ -1,88 +1,87 @@
 .description {
-  height: 100%;
-  width: 100%;
+  height: 10rem;
+  width: 20rem;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  row-gap: 3rem;
+  row-gap: 2rem;
+}
+
+.section-container {
+  height: fit-content;
+  width: fit-content;
+}
+
+.section-container:hover .section .title {
+  width: 2rem;
+}
+.section-container:hover .section .icons {
+  gap: 2rem;
+  left: 4rem;
 }
 
 .section {
   position: relative;
   height: 4rem;
-  width: 20vw;
-}
-
-.content {
-  position: absolute;
-  top: 0;
-  left: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: row;
-  column-gap: 0vw;
-  z-index: -1;
+  width: 20rem;
 }
 
 .title {
-  height: 100%;
-  width: 100%;
-}
-.title .title-container {
+  position: absolute;
   height: 100%;
   width: 100%;
   background-color: wheat;
   display: flex;
   align-items: center;
   justify-content: center;
-  overflow: hidden;
+  transition: width 0.3s;
   white-space: nowrap;
-  transition: width 0.5s;
+  overflow: hidden;
 }
 
-.section .title-container {
-  transition: width 0.5s;
-}
-.section .content {
-  transition: left 0.5s, column-gap 0.5s;
-}
-
-.section:hover .title-container {
-  width: 8vw;
-}
-.section:hover .content {
-  left: 50%;
-  column-gap: 2vw;
-}
-
-.section-item-icon {
+.icons {
+  position: absolute;
+  left: 0rem;
   height: 4rem;
+  width: 20rem;
+  display: flex;
+  flex-direction: row;
+  z-index: -1;
+  gap: 0rem;
+  transition: gap 0.3s, left 0.3s;
+}
+
+.icon {
+  height: 100%;
   width: 4rem;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   border: 1px solid white;
 }
-.section-item-icon.pug {
+.icon.pug {
   background-image: url(../../../assets/image/pug.svg);
   background-size: 90%;
 }
-.section-item-icon.scss {
+.icon.scss {
   background-image: url(../../../assets/image/scss.svg);
   background-size: 90%;
 }
-.section-item-icon.autoprefixer {
+.icon.autoprefixer {
   background-image: url(../../../assets/image/autoprefixer.svg);
   background-size: 90%;
 }
-.section-item-icon.cloudfront {
+.icon.cloudfront {
   background-image: url(../../../assets/image/cloudfront.svg);
 }
-.section-item-icon.s3 {
+.icon.s3 {
   background-image: url(../../../assets/image/s3.svg);
 }
-.section-item-icon.route53 {
+.icon.route53 {
   background-image: url(../../../assets/image/route53.svg);
+}
+
+.icon:hover {
+  background-color: wheat;
 }

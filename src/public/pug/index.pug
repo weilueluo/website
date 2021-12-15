@@ -9,7 +9,7 @@ append scripts
 
 append contents
     #title-wrapper
-        span#title Welcome
+    //   span#title Welcome
     //- params
     ul#list 
         - 
@@ -18,6 +18,11 @@ append contents
                     mixin: 'cv',
                     name: 'CV', 
                     description: 'View My Career.'
+                },
+                works: { 
+                    mixin: 'works',
+                    name: 'WORKS', 
+                    description: 'View My Works.'
                 },
                 waifu: {
                     mixin: 'waifu',
@@ -58,6 +63,10 @@ append contents
                             .gray-mona
                     
         mixin about
+            .background-image-container 
+                .background-image 
+
+        mixin works 
             .background-image-container 
                 .background-image 
 

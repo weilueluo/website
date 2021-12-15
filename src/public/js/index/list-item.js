@@ -90,4 +90,9 @@ import { addClass, addClassOnSiblings, removeClassOnSiblings, removeClass } from
         window.open('waifu.html');
     })
 
+    // works click
+    document.querySelector(".list-item-works").addEventListener("click", event => {
+        window.open('works.html');
+    })
+
 })()
