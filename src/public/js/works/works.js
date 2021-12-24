@@ -36,9 +36,7 @@ function create_cwk3_framework(canvasId) {
 const canvasId = 'glCanvas';
 
 function enable_UCLCG_work() {
-    let canvas = document.getElementById(canvasId);
-    canvas.width = 800;
-    canvas.height = 400;
+
 }
 
 function disable_UCLCG_work() {
@@ -55,12 +53,43 @@ $('.link').on('click', e => {
 $('#uclcg-link').on('click', e => {
     $('.works-container').toggleClass('uclcg-active active-state');
 
-    if ($('.works-container').hasClass('uclcg-active')) {
-        enable_UCLCG_work();
-    } else {
-        disable_UCLCG_work();
-    }
+    // if ($('.works-container').hasClass('uclcg-active')) {
+    //     enable_UCLCG_work();
+    // } else {
+    //     disable_UCLCG_work();
+    // }
 });
+
+
+function adjustCanvasSize() {
+
+    let canvasContainer = document.querySelector('.canvas-container');
+    let canvas = document.querySelector('.gl-canvas');
+
+    // set to container size
+    canvas.width  = canvasContainer.clientWidth;
+    canvas.height = canvasContainer.clientHeight;
+
+    console.log(canvas.width, canvas.height);
+
+    // reduce a bit for some margin
+    canvas.width -= Math.min(canvas.width * 0.05, 50);
+    canvas.height -= Math.min(canvas.height * 0.1, 50);;
+
+    console.log(canvas.width, canvas.height);
+
+    // ensure 1 : 2 height width ratio
+    if (canvas.width / 2.0 < canvas.height) {
+        canvas.height = canvas.width / 2.0;
+    } else if (canvas.height * 2 < canvas.width) {
+        canvas.width = canvas.height * 2;
+    }
+
+    console.log(canvas.width, canvas.height);
+
+}
+
+$('.uclcg-container').on('transitionend webkitTransitionEnd oTransitionEnd', () => adjustCanvasSize());
 
 function stopCurrentFramework() {
     framework && framework.stop();
