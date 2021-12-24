@@ -1,0 +1,164 @@
+
+
+#wrapper {
+    height: 100%;
+    width: 100%;
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.content-container {
+    height: 100%;
+    width: 100%;
+
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.links-container {
+    height: 80vh;
+    width: min(80vw, 40rem);
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+
+    transition: width 0.5s, height 0.5s;
+}
+
+
+
+.link {
+    $height: 3rem;
+
+    height: $height;
+    width: 80%;
+
+    background-color: wheat;
+    border: 1px solid black;
+    color: black;
+
+    text-align: center;
+    line-height: $height;
+    vertical-align: middle;
+
+    overflow: hidden;
+}
+
+.link:hover {
+    cursor: pointer;
+
+    box-shadow: 0 0 5px 0px wheat;
+}
+
+.passive-state {
+    .links-container {
+        width: min(20vw, 10rem);
+    }
+}
+
+
+.works-container {
+    height: 80vh;
+    width: 0vw;
+
+    background-color: wheat;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    transition: width 0.5s;
+}
+.works-container.active-state {
+    width: 70vw;
+}
+
+
+// uclcg stuff
+.uclcg-container {
+    height: 0%;
+    width: 0%;
+
+    background-color: gray;
+
+    display: grid;
+    grid-template-areas: 
+        "coursework option"
+        "coursework canvas";
+    grid-template-columns: 1fr 4fr;
+    grid-template-rows: 1fr 3fr;
+
+    transition: height 0.5s, width 0.5s;
+}
+
+.uclcg-container * {
+    opacity: 0;
+}
+
+.uclcg-active {
+    .uclcg-container {
+        height: 100%;
+        width: 100%;
+    }
+
+    .uclcg-container * {
+        opacity: 1;
+    }
+}
+
+.options-container {
+    grid-area: option;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.courseworks-container {
+    grid-area: coursework;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.canvas-container {
+    grid-area: canvas;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    position: relative;
+}
+
+.gl-canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    height: 500px;
+    width: 1000px;
+}
+
+button {
+    width: 10rem;
+    height: 2rem;
+}
+
+button:hover {
+    cursor: pointer;
+    box-shadow: 0 0 5px 0 black;
+}
