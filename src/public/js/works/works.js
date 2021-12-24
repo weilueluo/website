@@ -1,4 +1,7 @@
 
+var framework = null;
+const canvasId = 'glCanvas';
+
 
 function create_cwk1_framework(canvasId) {
     return new Framework(
@@ -21,8 +24,6 @@ function create_cwk2_framework(canvasId) {
     )
 }
 
-var framework = null;
-
 function create_cwk3_framework(canvasId) {
     return new Framework(
         canvasId, 
@@ -32,8 +33,6 @@ function create_cwk3_framework(canvasId) {
         tonemapShaderId = 'cwk3-tonemap-shader', 
     )
 }
-
-const canvasId = 'glCanvas';
 
 function enable_UCLCG_work() {
 
@@ -52,14 +51,7 @@ $('.link').on('click', e => {
 
 $('#uclcg-link').on('click', e => {
     $('.works-container').toggleClass('uclcg-active active-state');
-
-    // if ($('.works-container').hasClass('uclcg-active')) {
-    //     enable_UCLCG_work();
-    // } else {
-    //     disable_UCLCG_work();
-    // }
 });
-
 
 function adjustCanvasSize() {
 
@@ -70,13 +62,9 @@ function adjustCanvasSize() {
     canvas.width  = canvasContainer.clientWidth;
     canvas.height = canvasContainer.clientHeight;
 
-    console.log(canvas.width, canvas.height);
-
     // reduce a bit for some margin
-    canvas.width -= Math.min(canvas.width * 0.05, 50);
-    canvas.height -= Math.min(canvas.height * 0.1, 50);;
-
-    console.log(canvas.width, canvas.height);
+    canvas.width -= canvas.width * 0.1;
+    canvas.height -= canvas.height * 0.2;;
 
     // ensure 1 : 2 height width ratio
     if (canvas.width / 2.0 < canvas.height) {
@@ -84,9 +72,6 @@ function adjustCanvasSize() {
     } else if (canvas.height * 2 < canvas.width) {
         canvas.width = canvas.height * 2;
     }
-
-    console.log(canvas.width, canvas.height);
-
 }
 
 $('.uclcg-container').on('transitionend webkitTransitionEnd oTransitionEnd', () => adjustCanvasSize());
@@ -99,16 +84,73 @@ $('#coursework1').on('click', () => {
     stopCurrentFramework()
     framework = create_cwk1_framework(canvasId);
     framework.initialize().then(() => framework.drawCanvas());
+    $('.uclcg-container')
+        .addClass('coursework1-active')
+        .removeClass('coursework2-active coursework3-active');
 });
 
 $('#coursework2').on('click', () => {
     stopCurrentFramework()
     framework = create_cwk2_framework(canvasId);
     framework.initialize().then(() => framework.drawCanvas());
+    $('.uclcg-container')
+        .addClass('coursework2-active')
+        .removeClass('coursework1-active coursework3-active');
 });
 
 $('#coursework3').on('click', () => {
     stopCurrentFramework()
     framework = create_cwk3_framework(canvasId);
     framework.initialize().then(() => framework.start(1000));
+    $('.uclcg-container')
+        .addClass('coursework3-active')
+        .removeClass('coursework1-active coursework2-active');
+});
+
+
+function addFrameworkSolution(id) {
+    let tag = 'SOLUTION_' + id.replaceAll('-', '_').toUpperCase();
+    if (framework) {
+        framework.stop(); 
+        framework.clearSolutions();
+        framework.addSolution(tag);
+        framework.restart();
+    }
+}
+
+function setActiveState(id) {
+    $('.option-button').removeClass('active-state');
+    switch(id) {
+        // cwk 1
+        case 'fresnel': $('#fresnel').addClass('active-state');
+        case 'reflection-refraction': $('#reflection-refraction').addClass('active-state');
+        case 'cylinder-and-plane': $('#cylinder-and-plane').addClass('active-state');
+        break;
+        // cwk 2
+        case 'aalias': $('#aalias').addClass('active-state');
+        case 'zbuffering': $('#zbuffering').addClass('active-state');
+        case 'interpolation': $('#interpolation').addClass('active-state');
+        case 'clipping': $('#clipping').addClass('active-state');
+        case 'rasterization': $('#rasterization').addClass('active-state');
+        case 'projection': $('#projection').addClass('active-state');
+        break;
+        // cwk 3
+        case 'mis': $('#mis').addClass('active-state');
+        case 'is': $('#is').addClass('active-state');
+        case 'aa': $('#aa').addClass('active-state');
+        case 'halton': $('#halton').addClass('active-state');
+        case 'throughput': $('#throughput').addClass('active-state');
+        case 'bounce': $('#bounce').addClass('active-state');
+        case 'light': $('#light').addClass('active-state');
+        break;
+
+        default:
+            console.log(`set active state id invalid: ${id}`);
+            break;
+    }
+}
+
+$('.option-button').on('click', e => {
+    addFrameworkSolution(e.target.id);
+    setActiveState(e.target.id)
 });
