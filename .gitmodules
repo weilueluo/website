@@ -1,0 +1,3 @@
+[submodule "src/public/js/works/ucl_cg_framework"]
+	path = src/public/js/works/ucl_cg_framework
+	url = https://github.com/Redcxx/ucl_cg_framework.git
