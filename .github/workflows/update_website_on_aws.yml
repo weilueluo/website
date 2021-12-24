@@ -3,7 +3,7 @@ name: update hosted website
 on: push
 
 jobs:
-  upload:
+  update-aws:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@master
