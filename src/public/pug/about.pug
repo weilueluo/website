@@ -20,12 +20,27 @@ append contents
                 .icon.route53
                 .icon.cloudfront
                 .icon.s3
-    //- .message
-    //-     .title Want to say something?
-    //-     .message-box
-    //-         //- label(for="#message-input") Message
-    //-         input(type='text', id='#message-input', name='message', placeholer='Write something interesting here ...') 
+    .message
+        .title Leave me a message ...
+        .message-box
+            input(type='text', class='message-input', name='message', placeholer='Write something interesting here ...')
+            input(type='text', class='message-input', name='message') 
+            input(type='text', class='message-input', name='message') 
+            input(type='text', class='message-input', name='message')
+            input(type='text', class='message-input', name='message') 
+        .contact
 
+            label(for='anonymous')
+                input(type='radio', id='anonymous', name='identity', value='Anonymous', checked)
+                div.checkmark
+                span Anonymous
+
+            label(for='email')
+                input(type='radio', id='email', name='identity', value='Email')
+                div.checkmark
+                span Email
+                input(type='text', class='message-input email-input', name='message', placeholer='Email')
+        .action
     #background-image
         
 
