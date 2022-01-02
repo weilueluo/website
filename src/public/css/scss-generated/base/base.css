@@ -58,4 +58,5 @@ a {
   left: 0;
   background-image: url(../../../assets/image/background.jpg);
   background-size: cover;
+  background-repeat: no-repeat;
 }

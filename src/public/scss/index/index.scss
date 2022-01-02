@@ -12,7 +12,7 @@
 }
 
 .background-image {
-    filter: grayscale(100%) blur(3px);
+    backdrop-filter: grayscale(100%) blur(3px);
     z-index: -1;
 }
 

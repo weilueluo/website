@@ -3,7 +3,7 @@
     height: 2rem;
     width: 100vw;
 
-    position: absolute;
+    position: sticky;
     top: 0;
     left: 0;
     text-align: center;
@@ -11,4 +11,5 @@
 
     color: white;
     background: #cc8739;
+    z-index: 99;
 }

@@ -23,24 +23,20 @@ append contents
     .message
         .title Leave me a message ...
         .message-box
-            input(type='text', class='message-input', name='message', placeholer='Write something interesting here ...')
-            input(type='text', class='message-input', name='message') 
-            input(type='text', class='message-input', name='message') 
-            input(type='text', class='message-input', name='message')
-            input(type='text', class='message-input', name='message') 
+            textarea(class='message-input', name='message', placeholder='Write something interesting here ...')
         .contact
-
-            label(for='anonymous')
+            label(for='anonymous', class='identity-label')
                 input(type='radio', id='anonymous', name='identity', value='Anonymous', checked)
                 div.checkmark
                 span Anonymous
 
-            label(for='email')
+            label(for='email', class='email-label')
                 input(type='radio', id='email', name='identity', value='Email')
                 div.checkmark
                 span Email
-                input(type='text', class='message-input email-input', name='message', placeholer='Email')
+                input(type='text', class='email-input', name='message', placeholer='Email')
         .action
+            button.send-button Send (Not working yet)
     #background-image
         
 
