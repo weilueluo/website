@@ -13,3 +13,5 @@ $cloudfront-image: url(#{$image-folder + "/cloudfront.svg"});
 $route53-image: url(#{$image-folder + "/route53.svg"});
 
 
+// misc
+$favicon-image: url("../../../assets/icon/android-chrome-512x512.png")

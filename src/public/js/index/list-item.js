@@ -82,17 +82,17 @@ import { addClass, addClassOnSiblings, removeClassOnSiblings, removeClass } from
 
     // about click
     document.querySelector(".list-item-about").addEventListener("click", event => {
-        window.open('about.html');
+        window.open('about.html', '_self');
     })
 
     // waifu click
     document.querySelector(".list-item-waifu").addEventListener("click", event => {
-        window.open('waifu.html');
+        window.open('waifu.html', '_self');
     })
 
     // works click
     document.querySelector(".list-item-works").addEventListener("click", event => {
-        window.open('works.html');
+        window.open('works.html', '_self');
     })
 
 })()
