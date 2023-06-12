@@ -173,7 +173,7 @@ input:checked + .checkmark::after {
 .title {
   height: 4rem;
   width: 100%;
-  background-color: #dac8a8;
+  background-color: rgb(218, 200, 168);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -221,6 +221,6 @@ input:checked + .checkmark::after {
 }
 
 .icon:hover {
-  background-color: #dac8a8;
+  background-color: rgb(218, 200, 168);
   cursor: pointer;
 }

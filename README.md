@@ -16,3 +16,22 @@ pug -w src/public/pug -o src/public
 ```
 sass --watch --no-source-map ./src/public/scss:./src/public/css/scss-generated
 ```
+
+## Deploy
+```
+npm i
+npm install pug-cli -g
+```
+compile sass to css
+```
+npx sass --no-source-map ./src/public/scss:./src/public/css/scss-generated
+```
+apply postcss to compiled css
+```
+npx postcss ./src/public/css/scss-generated --use autoprefixer --base ./src/public/css/scss-generated --dir ./src/public/css/postcss-generated
+```
+compile pug to html
+```
+pug src/public/pug -o src/public
+```
+use whatever to serve `./src/public`

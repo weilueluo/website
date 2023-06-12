@@ -70,7 +70,7 @@
 .uclcg-container {
   height: 0%;
   width: 0%;
-  background-color: #292929;
+  background-color: rgb(41, 41, 41);
   display: grid;
   grid-template-areas: "reserved option" "coursework canvas";
   grid-template-columns: 1fr 4fr;
@@ -123,7 +123,7 @@
   align-items: center;
   justify-content: center;
   position: relative;
-  background-color: #1f1f1f;
+  background-color: rgb(31, 31, 31);
 }
 
 button {
