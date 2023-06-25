@@ -19,6 +19,7 @@ sass --watch --no-source-map ./src/public/scss:./src/public/css/scss-generated
 
 ## Deploy
 ```
+nvm use
 npm i
 npm install pug-cli -g
 ```
